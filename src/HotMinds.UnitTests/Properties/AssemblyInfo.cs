@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HotMinds")]
+[assembly: AssemblyTitle("HotMinds.UnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HotMinds")]
+[assembly: AssemblyProduct("HotMinds.UnitTests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,10 +19,8 @@ using System.Runtime.InteropServices;
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-[assembly: InternalsVisibleTo("HotMinds.UnitTests", AllInternalsVisible = true)]
-
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("db672bbd-e510-4167-b311-525dfa57de9d")]
+[assembly: Guid("91b0d3f7-8bbe-4987-aac3-db888d4b5eea")]
 
 // Version information for an assembly consists of the following four values:
 //

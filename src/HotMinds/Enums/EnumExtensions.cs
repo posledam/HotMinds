@@ -1,36 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace HotMinds.Enums
 {
     /// <summary>
-    ///     Методы расширения для Enum-значений и <see cref="EnumMetadata"/> коллекций, возвращаемых
-    ///     методами <see cref="EnumUtils"/>.
+    ///     Extensions for Enum value and collections of <see cref="EnumMetadata"/>.
     /// </summary>
     public static class EnumExtensions
     {
         /// <summary>
-        ///     Метод расширения для фильтрации коллекций <see cref="EnumMetadata"/> всех доступных значений
-        ///     перечисления по значению атрибута <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateFilter"/>.
+        ///     Filter collections of <see cref="EnumMetadata"/> by attribute property <see cref="DisplayAttribute.AutoGenerateFilter"/>.
         /// </summary>
         /// <typeparam name="TEnumData">
-        ///     Тип, содержащий информацию о значении перечисления, наследуется от <see cref="EnumMetadata"/>. 
+        ///     Concrete or base type of <see cref="EnumMetadata"/>.
         /// </typeparam>
         /// <param name="sequence">
-        ///     Коллекция элементов, содержащая все доступные для фильтрации значения перечисления. </param>
+        ///     Collection of <typeparamref name="TEnumData"/>. </param>
         /// <param name="filterValue">
-        ///     Параметр фильтрации: будут выбраны только те элементы коллекции, значение атрибута 
-        ///     <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateFilter"/> которых 
-        ///     равно указанному параметру. Отсутствие атрибута или значения атрибута интерпретируется в зависимости 
-        ///     от стратегии фильтрации, указанной в параметре <paramref name="strict"/>. </param>
+        ///     Filter parameter for attribute property <see cref="DisplayAttribute.AutoGenerateFilter"/>.
+        ///     If attribute property is empty, use filter strategy by <paramref name="strict"/>.
+        /// </param>
         /// <param name="strict">
-        ///     Стратегия фильтрации: строгий режим. Если указано true, то элементы коллекции без значения 
-        ///     атрибута <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateFilter"/> 
-        ///     (или без атрибута) будут отфильтрованы. Если указано false, такие элементы будут считаться подходящими 
-        ///     независимо от значения параметра <paramref name="filterValue"/>. </param>
+        ///     Filter strategy for <paramref name="filterValue"/> and empty <see cref="DisplayAttribute.AutoGenerateFilter"/>. 
+        ///     If true, empty attribute property values would be excluded.
+        /// </param>
         /// <returns>
-        ///     Отфильтрованная коллекция. </returns>
+        ///     Filtered collection. </returns>
         public static IEnumerable<TEnumData> ForFilter<TEnumData>(this IEnumerable<TEnumData> sequence,
             bool filterValue = true, bool strict = false)
             where TEnumData : EnumMetadata
@@ -43,26 +40,23 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Метод расширения для фильтрации коллекций <see cref="EnumMetadata"/> всех доступных значений
-        ///     перечисления по значению атрибута <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateField"/>.
+        ///     Filter collections of <see cref="EnumMetadata"/> by attribute property <see cref="DisplayAttribute.AutoGenerateField"/>.
         /// </summary>
         /// <typeparam name="TEnumData">
-        ///     Тип, содержащий информацию о значении перечисления, наследуется от <see cref="EnumMetadata"/>. 
+        ///     Concrete or base type of <see cref="EnumMetadata"/>.
         /// </typeparam>
         /// <param name="sequence">
-        ///     Коллекция элементов, содержащая все доступные для фильтрации значения перечисления. </param>
+        ///     Collection of <typeparamref name="TEnumData"/>. </param>
         /// <param name="fieldValue">
-        ///     Параметр фильтрации: будут выбраны только те элементы коллекции, значение атрибута 
-        ///     <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateField"/> которых 
-        ///     равно указанному параметру. Отсутствие атрибута или значения атрибута интерпретируется в зависимости 
-        ///     от стратегии фильтрации, указанной в параметре <paramref name="strict"/>. </param>
+        ///     Filter parameter for attribute property <see cref="DisplayAttribute.AutoGenerateField"/>.
+        ///     If attribute property is empty, use filter strategy by <paramref name="strict"/>.
+        /// </param>
         /// <param name="strict">
-        ///     Стратегия фильтрации: строгий режим. Если указано true, то элементы коллекции без значения 
-        ///     атрибута <see cref="System.ComponentModel.DataAnnotations.DisplayAttribute.AutoGenerateField"/> 
-        ///     (или без атрибута) будут отфильтрованы. Если указано false, такие элементы будут считаться подходящими 
-        ///     независимо от значения параметра <paramref name="fieldValue"/>. </param>
+        ///     Filter strategy for <paramref name="fieldValue"/> and empty <see cref="DisplayAttribute.AutoGenerateField"/>. 
+        ///     If true, empty attribute property values would be excluded.
+        /// </param>
         /// <returns>
-        ///     Отфильтрованная коллекция. </returns>
+        ///     Filtered collection. </returns>
         public static IEnumerable<TEnumData> ForField<TEnumData>(this IEnumerable<TEnumData> sequence,
             bool fieldValue = true, bool strict = false)
             where TEnumData : EnumMetadata
@@ -75,12 +69,12 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить объект мета-данных указанного Enum-значения.
+        ///     Get metadata for Enum value.
         /// </summary>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Объект мета-данных Enum-значения.
+        ///     Enum value metadata.
         /// </returns>
         public static EnumMetadata GetMetadata(this Enum value)
         {
@@ -88,12 +82,12 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить локализованное название Enum-значения.
+        ///     Get enum value display name (from attributes or resources).
         /// </summary>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Текст локализованного названия Enum-значение при наличии, или название Enum-значения.
+        ///     Enum value display name (or enum value name).
         /// </returns>
         public static string GetDisplayName(this Enum value)
         {

@@ -8,11 +8,14 @@
     <owners>hVostt</owners>
     <licenseUrl>https://www.gnu.org/licenses/gpl-3.0.html</licenseUrl>
     <projectUrl>https://github.com/hVostt/HotMinds</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/hVostt/HotMinds/master/src/HotMinds/icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <description>Common .NET library: utils, extensions and so on.</description>
+    <releaseNotes>First release.</releaseNotes>
     <copyright>Copyright 2016</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>.NET, Utils, Enum, Extensions, Collections</tags>
+    <dependencies>
+      <dependency id="JetBrains.Annotations" version="10.1.5" />
+    </dependencies>
   </metadata>
 </package>

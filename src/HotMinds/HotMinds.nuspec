@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>HotMinds</id>
+    <version>$version$</version>
+    <title>HotMinds</title>
+    <authors>hVostt</authors>
+    <owners>hVostt</owners>
+    <licenseUrl>https://www.gnu.org/licenses/gpl-3.0.html</licenseUrl>
+    <projectUrl>https://github.com/hVostt/HotMinds</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/hVostt/HotMinds/master/src/HotMinds/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common .NET library: utils, extensions and so on.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>.NET, Utils, Enum, Extensions, Collections</tags>
+    <dependencies>
+      <dependency id="JetBrains.Annotations" version="10.1.5" />
+    </dependencies>
+  </metadata>
+</package>

@@ -16,15 +16,11 @@ namespace HotMinds.Enums
     {
         #region internal static fields
 
-        /// <summary>
-        ///     Internal Enum metadata cache by Enum type.
-        /// </summary>
+        // Internal Enum metadata cache by Enum type.
         internal static readonly ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>> EnumCache
             = new ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>();
 
-        /// <summary>
-        ///     Internal Enum metadata cache by special Enum key.
-        /// </summary>
+        // Internal Enum metadata cache by special Enum key.
         internal static readonly Dictionary<EnumKey, EnumMetadata> FieldCache
             = new Dictionary<EnumKey, EnumMetadata>();
 
@@ -205,18 +201,14 @@ namespace HotMinds.Enums
 
         #region private methods
 
-        /// <summary>
-        ///     Get cached Enum metadata values list by generic Enum type <typeparamref name="TEnum"/>.
-        /// </summary>
+        // Get cached Enum metadata values list by generic Enum type <typeparamref name="TEnum"/>.
         private static IReadOnlyCollection<EnumMetadata<TEnum>> GetInternal<TEnum>() where TEnum : struct
         {
             var info = EnumCache.GetOrAdd(typeof(TEnum), BuildInternal<TEnum>);
             return (IReadOnlyCollection<EnumMetadata<TEnum>>)info;
         }
 
-        /// <summary>
-        ///      Get cached Enum metadata values list by Enum type <paramref name="enumType"/>.
-        /// </summary>
+        // Get cached Enum metadata values list by Enum type <paramref name="enumType"/>.
         private static IReadOnlyCollection<EnumMetadata> GetInternal(Type enumType)
         {
             return EnumCache.GetOrAdd(enumType, t =>
@@ -227,16 +219,12 @@ namespace HotMinds.Enums
             });
         }
 
-        /// <summary>
-        ///     Internal MethodInfo referenced to build Enum metadata cache generic method. Used for
-        ///     fast make generic method call via reflection.
-        /// </summary>
+        // Internal MethodInfo referenced to build Enum metadata cache generic method. Used for
+        // fast make generic method call via reflection.
         private static readonly MethodInfo BuildMethod = typeof(EnumUtils).GetMethod(nameof(BuildInternal),
             BindingFlags.NonPublic | BindingFlags.Static);
 
-        /// <summary>
-        ///     Build Enum metadata for Enum type <typeparamref name="TEnum"/> for caching.
-        /// </summary>
+        // Build Enum metadata for Enum type <typeparamref name="TEnum"/> for caching.
         private static IReadOnlyCollection<EnumMetadata<TEnum>> BuildInternal<TEnum>(Type enumType) where TEnum : struct
         {
 #pragma warning disable 618
@@ -276,9 +264,7 @@ namespace HotMinds.Enums
 
         #region private types
 
-        /// <summary>
-        ///     Unique enum value key for storing meta data in cache.
-        /// </summary>
+        // Unique enum value key for storing meta data in cache.
         internal struct EnumKey
         {
             // ReSharper disable NotAccessedField.Local
@@ -289,13 +275,7 @@ namespace HotMinds.Enums
 
             // ReSharper restore NotAccessedField.Local
 
-            /// <summary>
-            ///     Create unique enum key by type and value.
-            /// </summary>
-            /// <param name="enumType">
-            ///     Enum concrete type. </param>
-            /// <param name="value">
-            ///     Enum value. </param>
+            // Create unique enum key by type and value.
             public EnumKey(Type enumType, object value)
             {
                 _enumType = enumType;
@@ -305,9 +285,7 @@ namespace HotMinds.Enums
 
             #region Overrides of ValueType
 
-            /// <summary>
-            ///     Override struct hash function.
-            /// </summary>
+            // Override struct hash function.
             public override int GetHashCode()
             {
                 return _hash;

@@ -70,8 +70,8 @@ Static Fields
 
 | Type | Name | Summary | 
 | --- | --- | --- | 
-| `ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>` | EnumCache | Internal Enum metadata cache by Enum type. | 
-| `Dictionary<EnumKey, EnumMetadata>` | FieldCache | Internal Enum metadata cache by special Enum key. | 
+| `ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>` | EnumCache |  | 
+| `Dictionary<EnumKey, EnumMetadata>` | FieldCache |  | 
 
 
 Static Methods

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\CommonCollectionExtensions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\EnumMetadata.cs" />
     <Compile Include="Enums\EnumUtils.cs" />

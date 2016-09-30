@@ -17,13 +17,13 @@ namespace HotMinds.Enums
         #region internal static fields
 
         /// <summary>
-        ///     Internal meta data cache by type.
+        ///     Internal Enum metadata cache by Enum type.
         /// </summary>
         internal static readonly ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>> EnumCache
             = new ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>();
 
         /// <summary>
-        ///     Internal meta data cache by key.
+        ///     Internal Enum metadata cache by special Enum key.
         /// </summary>
         internal static readonly Dictionary<EnumKey, EnumMetadata> FieldCache
             = new Dictionary<EnumKey, EnumMetadata>();
@@ -34,13 +34,12 @@ namespace HotMinds.Enums
         #region general public methods
 
         /// <summary>
-        ///     Получить коллекцию мета-данных всех доступных значений Enum-типа.
+        ///     Get Enum values metadata collection.
         /// </summary>
         /// <typeparam name="TEnum">
-        ///     Тип перечисления. </typeparam>
+        ///     Concrete Enum type. </typeparam>
         /// <returns>
-        ///     Коллекция мета-данных всех доступных значений Enum-типа, отсортированная по значению
-        ///     <see cref="EnumMetadata.Order"/>. 
+        ///     Collection of Enum values metadata, ordered by <see cref="EnumMetadata.Order"/>.
         /// </returns>
         public static IReadOnlyCollection<EnumMetadata<TEnum>> GetMetadata<TEnum>() where TEnum : struct
         {
@@ -50,13 +49,12 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить коллекцию мета-данных всех доступных значений Enum-типа.
+        ///     Get Enum values metadata collection.
         /// </summary>
         /// <param name="enumType">
-        ///     Тип перечисления. </param>
+        ///     Concrete Enum type. </param>
         /// <returns>
-        ///     Коллекция мета-данных всех доступных значений Enum-типа, отсортированная по значению
-        ///     <see cref="EnumMetadata.Order"/>. 
+        ///     Collection of Enum values metadata, ordered by <see cref="EnumMetadata.Order"/>.
         /// </returns>
         public static IReadOnlyCollection<EnumMetadata> GetMetadata([NotNull] Type enumType)
         {
@@ -68,14 +66,14 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить объект мета-данных указанного Enum-значения.
+        ///     Get Enum value metadata.
         /// </summary>
         /// <typeparam name="TEnum">
-        ///     Тип перечисления, выводится автоматически. </typeparam>
+        ///     Enum type (get at compile time). </typeparam>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Объект мета-данных Enum-значения.
+        ///     Enum value metadata (typed).
         /// </returns>
         public static EnumMetadata<TEnum> GetMetadata<TEnum>(TEnum value)
             where TEnum : struct
@@ -94,12 +92,12 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить объект мета-данных указанного Enum-значения.
+        ///     Get Enum value metadata.
         /// </summary>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Объект мета-данных Enum-значения.
+        ///     Enum value metadata (typed).
         /// </returns>
         public static EnumMetadata GetMetadata([NotNull] Enum value)
         {
@@ -117,16 +115,16 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить объект типизированных мета-данных перечисления по названию Enum-значения.
+        ///     Get Enum value metadata by name.
         /// </summary>
         /// <typeparam name="TEnum">
-        ///     Тип перечисления. </typeparam>
+        ///     Enum type. </typeparam>
         /// <param name="name">
-        ///     Строка с текстовым значением перечисления. </param>
+        ///     Enum value name. </param>
         /// <param name="ignoreCase">
-        ///     Сравнивать текстовое значение без учёта регистра. </param>
+        ///     Ignore case for searching metadata by name. </param>
         /// <returns>
-        ///     Объект типизированных мета-данных Enum-значения или null, если такое значение не найдено.
+        ///     Enum value metadata or null (if not found).
         /// </returns>
         public static EnumMetadata<TEnum> GetMetadata<TEnum>([NotNull] string name, bool ignoreCase = false)
             where TEnum : struct
@@ -142,16 +140,16 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить объект мета-данных перечисления по названию Enum-значения.
+        ///     Get Enum value metadata by name.
         /// </summary>
         /// <param name="enumType">
-        ///     Тип перечисления. </param>
+        ///     Enum type. </param>
         /// <param name="name">
-        ///     Строка с текстовым значением перечисления. </param>
+        ///     Enum value name. </param>
         /// <param name="ignoreCase">
-        ///     Сравнивать текстовое значение без учёта регистра. </param>
+        ///     Ignore case for searching metadata by name. </param>
         /// <returns>
-        ///     Объект мета-данных Enum-значения или null, если такое значение не найдено.
+        ///     Enum value metadata or null (if not found).
         /// </returns>
         public static EnumMetadata GetMetadata([NotNull] Type enumType, [NotNull] string name, bool ignoreCase = false)
         {
@@ -173,14 +171,14 @@ namespace HotMinds.Enums
         #region public display helpers
 
         /// <summary>
-        ///     Получить локализованное название Enum-значения.
+        ///     Get Enum value display name (from attribute/resources or Enum value name).
         /// </summary>
         /// <typeparam name="TEnum">
-        ///     Тип перечисления, выводится автоматически. </typeparam>
+        ///     Enum value type. </typeparam>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Текст локализованного названия Enum-значение при наличии, или название Enum-значения.
+        ///     Enum value display name (may be localized).
         /// </returns>
         public static string GetDisplayName<TEnum>(TEnum value) where TEnum : struct
         {
@@ -188,12 +186,12 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить локализованное название Enum-значения.
+        ///     Get Enum value display name (from attribute/resources or Enum value name).
         /// </summary>
         /// <param name="value">
-        ///     Значение перечисления. </param>
+        ///     Enum value. </param>
         /// <returns>
-        ///     Текст локализованного названия Enum-значение при наличии, или название Enum-значения.
+        ///     Enum value display name (may be localized).
         /// </returns>
         public static string GetDisplayName([NotNull] Enum value)
         {
@@ -208,15 +206,8 @@ namespace HotMinds.Enums
         #region private methods
 
         /// <summary>
-        ///     Получить коллекцию типизированных мета-данных перечисления из внутреннего кеша. 
-        ///     Если данных в кеше нет, извлечь их из типа и сформировать коллекцию.
+        ///     Get cached Enum metadata values list by generic Enum type <typeparamref name="TEnum"/>.
         /// </summary>
-        /// <typeparam name="TEnum">
-        ///     Тип перечисления. 
-        /// </typeparam>
-        /// <returns>
-        ///     Коллекция мета-данных перечисления.
-        /// </returns>
         private static IReadOnlyCollection<EnumMetadata<TEnum>> GetInternal<TEnum>() where TEnum : struct
         {
             var info = EnumCache.GetOrAdd(typeof(TEnum), BuildInternal<TEnum>);
@@ -224,14 +215,8 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Получить коллекцию мета-данных перечисления из внутреннего кеша. 
-        ///     Если данных в кеше нет, извлечь их из типа и сформировать коллекцию.
+        ///      Get cached Enum metadata values list by Enum type <paramref name="enumType"/>.
         /// </summary>
-        /// <param name="enumType">
-        ///     Тип перечисления. </param>
-        /// <returns>
-        ///     Коллекция мета-данных перечисления.
-        /// </returns>
         private static IReadOnlyCollection<EnumMetadata> GetInternal(Type enumType)
         {
             return EnumCache.GetOrAdd(enumType, t =>
@@ -243,21 +228,15 @@ namespace HotMinds.Enums
         }
 
         /// <summary>
-        ///     Мета-информация о внутреннем статическом методе для построения коллекции мета-данных перечисления.
+        ///     Internal MethodInfo referenced to build Enum metadata cache generic method. Used for
+        ///     fast make generic method call via reflection.
         /// </summary>
         private static readonly MethodInfo BuildMethod = typeof(EnumUtils).GetMethod(nameof(BuildInternal),
             BindingFlags.NonPublic | BindingFlags.Static);
 
         /// <summary>
-        ///     Построить коллекцию типизированных мета-данных перечисления указанного типа.
+        ///     Build Enum metadata for Enum type <typeparamref name="TEnum"/> for caching.
         /// </summary>
-        /// <typeparam name="TEnum">
-        ///     Тип перечисления. </typeparam>
-        /// <param name="enumType">
-        ///     Тип перечисления (требуется передавать отдельно для делегата). </param>
-        /// <returns>
-        ///     Новая коллекция типизированных мета-данных перечисления.
-        /// </returns>
         private static IReadOnlyCollection<EnumMetadata<TEnum>> BuildInternal<TEnum>(Type enumType) where TEnum : struct
         {
 #pragma warning disable 618

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using HotMinds.Enums;
@@ -278,6 +279,25 @@ namespace HotMinds.UnitTests
         }
 
         [Test]
+        public void ForFilter_Extension_Null_Test()
+        {
+            IEnumerable<EnumMetadata> all = null;
+            IEnumerable<EnumMetadata<TestEnum>> genericAll = null;
+
+            // ReSharper disable AssignNullToNotNullAttribute
+            Assert.That(() => all.ForFilter(), Throws.ArgumentNullException);
+            Assert.That(() => all.ForFilter(true, true), Throws.ArgumentNullException);
+            Assert.That(() => all.ForFilter(false), Throws.ArgumentNullException);
+            Assert.That(() => all.ForFilter(false, true), Throws.ArgumentNullException);
+
+            Assert.That(() => genericAll.ForFilter(), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForFilter(true, true), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForFilter(false), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForFilter(false, true), Throws.ArgumentNullException);
+            // ReSharper restore AssignNullToNotNullAttribute
+        }
+
+        [Test]
         public void ForFilter_Extension_Generic_Test()
         {
             var all = EnumUtils.GetMetadata<TestEnum>();
@@ -305,6 +325,25 @@ namespace HotMinds.UnitTests
                 .And.EquivalentTo(all.Where(p => !(p.Display?.GetAutoGenerateFilter() ?? false))));
             Assert.That(all.ForFilter(false, true), Is.Not.Null
                 .And.EquivalentTo(all.Where(p => !(p.Display?.GetAutoGenerateFilter() ?? true))));
+        }
+
+        [Test]
+        public void ForField_Extension_Null_Test()
+        {
+            IEnumerable<EnumMetadata> all = null;
+            IEnumerable<EnumMetadata<TestEnum>> genericAll = null;
+
+            // ReSharper disable AssignNullToNotNullAttribute
+            Assert.That(() => all.ForField(), Throws.ArgumentNullException);
+            Assert.That(() => all.ForField(true, true), Throws.ArgumentNullException);
+            Assert.That(() => all.ForField(false), Throws.ArgumentNullException);
+            Assert.That(() => all.ForField(false, true), Throws.ArgumentNullException);
+
+            Assert.That(() => genericAll.ForField(), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForField(true, true), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForField(false), Throws.ArgumentNullException);
+            Assert.That(() => genericAll.ForField(false, true), Throws.ArgumentNullException);
+            // ReSharper restore AssignNullToNotNullAttribute
         }
 
         [Test]
@@ -383,6 +422,11 @@ namespace HotMinds.UnitTests
         [Test]
         public void GetDisplayName_Extension_Test()
         {
+            Enum enumNull = null;
+
+            // ReSharper disable once AssignNullToNotNullAttribute
+            Assert.That(() => enumNull.GetDisplayName(), Throws.ArgumentNullException);
+
             Assert.That(TestEnum.V0.GetDisplayName(), Is.EqualTo("V0"));
             Assert.That(TestEnum.V1.GetDisplayName(), Is.EqualTo("Value 1"));
             Assert.That(TestEnum.V2.GetDisplayName(), Is.EqualTo("Value 2"));

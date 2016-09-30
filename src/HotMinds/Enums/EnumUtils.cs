@@ -209,7 +209,7 @@ namespace HotMinds.Enums
         }
 
         // Get cached Enum metadata values list by Enum type <paramref name="enumType"/>.
-        private static IReadOnlyCollection<EnumMetadata> GetInternal(Type enumType)
+        private static IReadOnlyCollection<EnumMetadata> GetInternal([NotNull] Type enumType)
         {
             return EnumCache.GetOrAdd(enumType, t =>
             {
@@ -225,7 +225,7 @@ namespace HotMinds.Enums
             BindingFlags.NonPublic | BindingFlags.Static);
 
         // Build Enum metadata for Enum type <typeparamref name="TEnum"/> for caching.
-        private static IReadOnlyCollection<EnumMetadata<TEnum>> BuildInternal<TEnum>(Type enumType) where TEnum : struct
+        private static IReadOnlyCollection<EnumMetadata<TEnum>> BuildInternal<TEnum>([NotNull] Type enumType) where TEnum : struct
         {
 #pragma warning disable 618
             var enumItems =
@@ -276,7 +276,7 @@ namespace HotMinds.Enums
             // ReSharper restore NotAccessedField.Local
 
             // Create unique enum key by type and value.
-            public EnumKey(Type enumType, object value)
+            public EnumKey([NotNull] Type enumType, [NotNull] object value)
             {
                 _enumType = enumType;
                 _value = value;

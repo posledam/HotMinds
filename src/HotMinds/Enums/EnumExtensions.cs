@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace HotMinds.Enums
 {
@@ -28,10 +29,11 @@ namespace HotMinds.Enums
         /// </param>
         /// <returns>
         ///     Filtered collection. </returns>
-        public static IEnumerable<TEnumData> ForFilter<TEnumData>(this IEnumerable<TEnumData> sequence,
+        public static IEnumerable<TEnumData> ForFilter<TEnumData>([NotNull] this IEnumerable<TEnumData> sequence,
             bool filterValue = true, bool strict = false)
             where TEnumData : EnumMetadata
         {
+            if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             return
                 from p in sequence
                 let autoGenerateFilter = p.Display?.GetAutoGenerateFilter()
@@ -57,10 +59,11 @@ namespace HotMinds.Enums
         /// </param>
         /// <returns>
         ///     Filtered collection. </returns>
-        public static IEnumerable<TEnumData> ForField<TEnumData>(this IEnumerable<TEnumData> sequence,
+        public static IEnumerable<TEnumData> ForField<TEnumData>([NotNull] this IEnumerable<TEnumData> sequence,
             bool fieldValue = true, bool strict = false)
             where TEnumData : EnumMetadata
         {
+            if (sequence == null) throw new ArgumentNullException(nameof(sequence));
             return
                 from p in sequence
                 let autoGenerateField = p.Display?.GetAutoGenerateField()
@@ -76,8 +79,9 @@ namespace HotMinds.Enums
         /// <returns>
         ///     Enum value metadata.
         /// </returns>
-        public static EnumMetadata GetMetadata(this Enum value)
+        public static EnumMetadata GetMetadata([NotNull] this Enum value)
         {
+            if (value == null) throw new ArgumentNullException(nameof(value));
             return EnumUtils.GetMetadata(value);
         }
 
@@ -89,8 +93,9 @@ namespace HotMinds.Enums
         /// <returns>
         ///     Enum value display name (or enum value name).
         /// </returns>
-        public static string GetDisplayName(this Enum value)
+        public static string GetDisplayName([NotNull] this Enum value)
         {
+            if (value == null) throw new ArgumentNullException(nameof(value));
             return EnumUtils.GetDisplayName(value);
         }
     }

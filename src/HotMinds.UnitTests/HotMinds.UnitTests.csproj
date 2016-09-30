@@ -57,7 +57,10 @@
   <ItemGroup>
     <Compile Include="CommonCollectionExtensions_Tests.cs" />
     <Compile Include="EnumUtils_Tests.cs" />
+    <Compile Include="NumberStringExtensions_Tests.cs" />
+    <Compile Include="LinqExtensions_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommonStringExtensions_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

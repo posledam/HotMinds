@@ -3,6 +3,7 @@
 ## [HotMinds.Collections](HotMinds.Collections)
 
 - [`CommonCollectionExtensions`](HotMinds.Collections#commoncollectionextensions)
+- [`LinqExtensions`](HotMinds.Collections#linqextensions)
 
 ## [HotMinds.Enums](HotMinds.Enums)
 
@@ -10,4 +11,9 @@
 - [`EnumMetadata`](HotMinds.Enums#enummetadata)
 - [`EnumMetadata<TEnum>`](HotMinds.Enums#enummetadatatenum)
 - [`EnumUtils`](HotMinds.Enums#enumutils)
+
+## [HotMinds.Strings](HotMinds.Strings)
+
+- [`CommonStringExtensions`](HotMinds.Strings#commonstringextensions)
+- [`NumberStringExtensions`](HotMinds.Strings#numberstringextensions)
 

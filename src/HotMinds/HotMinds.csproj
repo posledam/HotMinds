@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HotMinds.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="JetBrains.Annotations, Version=10.1.5.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
@@ -60,7 +61,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>Powershell.exe -ExecutionPolicy Unrestricted -file "$(SolutionDir)..\tools\xmldoc2md\xmldoc2md.ps1" -xml "$(TargetDir)HotMinds.XML" -xsl "$(SolutionDir)..\tools\xmldoc2md\xmldoc2md.xsl" -output "$(SolutionDir)..\doc\HotMinds.md"</PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)..\tools\MarkdownGenerator.exe "$(TargetPath)" "$(SolutionDir)..\doc"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -10,6 +10,8 @@ Static Methods
 
 | Type | Name | Summary | 
 | --- | --- | --- | 
+| `String` | DefaultIfNullOrEmpty(this `String` str, `String` defaultValue = null) | Get the default value if the source string is empty or null. | 
+| `String` | DefaultIfNullOrWhiteSpace(this `String` str, `String` defaultValue = null) | Get the default value if the source string is empty, whitespaces or null. | 
 | `Int32` | GetLength(this `String` str) | Gets the string length, or zero if string is null. | 
 | `Boolean` | IsNullOrEmpty(this `String` str) | Extension analog of String.IsNullOrEmpty. | 
 | `Boolean` | IsNullOrWhiteSpace(this `String` str) | Extension analog of String.IsNullOrWhiteSpace. | 

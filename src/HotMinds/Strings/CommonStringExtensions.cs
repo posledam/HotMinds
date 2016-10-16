@@ -10,6 +10,32 @@ namespace HotMinds.Strings
     public static class CommonStringExtensions
     {
         /// <summary>
+        ///     Get the default value if the source string is empty or null.
+        /// </summary>
+        /// <param name="str">
+        ///     Source string.</param>
+        /// <param name="defaultValue">
+        ///     Default value.</param>
+        /// <returns>Source string or default value.</returns>
+        public static string DefaultIfNullOrEmpty([CanBeNull] this string str, string defaultValue = default(string))
+        {
+            return string.IsNullOrEmpty(str) ? defaultValue : str;
+        }
+
+        /// <summary>
+        ///     Get the default value if the source string is empty, whitespaces or null.
+        /// </summary>
+        /// <param name="str">
+        ///     Source string.</param>
+        /// <param name="defaultValue">
+        ///     Default value.</param>
+        /// <returns>Source string or default value.</returns>
+        public static string DefaultIfNullOrWhiteSpace([CanBeNull] this string str, string defaultValue = default(string))
+        {
+            return string.IsNullOrWhiteSpace(str) ? defaultValue : str;
+        }
+
+        /// <summary>
         ///     Gets the string length, or zero if string is null.
         /// </summary>
         /// <param name="str">Source string.</param>

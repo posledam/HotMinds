@@ -9,6 +9,46 @@ namespace HotMinds.UnitTests
     public class CommonStringExtensions_Tests
     {
         [Test]
+        public void DefaultIfNullOrEmpty_Test()
+        {
+            // default defaultValue (null)
+            Assert.That(((string)null).DefaultIfNullOrEmpty(), Is.EqualTo(null));
+            Assert.That(string.Empty.DefaultIfNullOrEmpty(), Is.EqualTo(null));
+            Assert.That("".DefaultIfNullOrEmpty(), Is.EqualTo(null));
+            Assert.That(" ".DefaultIfNullOrEmpty(), Is.EqualTo(" "));
+            Assert.That("abc".DefaultIfNullOrEmpty(), Is.EqualTo("abc"));
+            Assert.That(" a b c ".DefaultIfNullOrEmpty(), Is.EqualTo(" a b c "));
+
+            // custom defaultValue
+            Assert.That(((string)null).DefaultIfNullOrEmpty("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That(string.Empty.DefaultIfNullOrEmpty("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That("".DefaultIfNullOrEmpty("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That(" ".DefaultIfNullOrEmpty("_123abc"), Is.EqualTo(" "));
+            Assert.That("abc".DefaultIfNullOrEmpty("_123abc"), Is.EqualTo("abc"));
+            Assert.That(" a b c ".DefaultIfNullOrEmpty("_123abc"), Is.EqualTo(" a b c "));
+        }
+
+        [Test]
+        public void DefaultIfNullOrWhiteSpace_Test()
+        {
+            // default defaultValue (null)
+            Assert.That(((string)null).DefaultIfNullOrWhiteSpace(), Is.EqualTo(null));
+            Assert.That(string.Empty.DefaultIfNullOrWhiteSpace(), Is.EqualTo(null));
+            Assert.That("".DefaultIfNullOrWhiteSpace(), Is.EqualTo(null));
+            Assert.That("    ".DefaultIfNullOrWhiteSpace(), Is.EqualTo(null));
+            Assert.That("abc".DefaultIfNullOrWhiteSpace(), Is.EqualTo("abc"));
+            Assert.That(" a b c ".DefaultIfNullOrWhiteSpace(), Is.EqualTo(" a b c "));
+
+            // custom defaultValue
+            Assert.That(((string)null).DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That(string.Empty.DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That("".DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That("    ".DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo("_123abc"));
+            Assert.That("abc".DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo("abc"));
+            Assert.That(" a b c ".DefaultIfNullOrWhiteSpace("_123abc"), Is.EqualTo(" a b c "));
+        }
+
+        [Test]
         public void GetLength_Test()
         {
             Assert.That(((string)null).GetLength(), Is.EqualTo(0));

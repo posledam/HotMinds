@@ -56,6 +56,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CommonCollectionExtensions_Tests.cs" />
+    <Compile Include="CryptoPasswordGenerator_Tests.cs" />
     <Compile Include="EnumUtils_Tests.cs" />
     <Compile Include="NumberStringExtensions_Tests.cs" />
     <Compile Include="LinqExtensions_Tests.cs" />

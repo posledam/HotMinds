@@ -17,3 +17,8 @@
 - [`CommonStringExtensions`](HotMinds.Strings#commonstringextensions)
 - [`NumberStringExtensions`](HotMinds.Strings#numberstringextensions)
 
+## [HotMinds.Utils](HotMinds.Utils)
+
+- [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
+- [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
+

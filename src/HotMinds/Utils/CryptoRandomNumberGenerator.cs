@@ -3,8 +3,14 @@ using System.Security.Cryptography;
 
 namespace HotMinds.Utils
 {
+    /// <summary>
+    ///     Сrypto-strength random number generator (based on <see cref="RNGCryptoServiceProvider"/>).
+    /// </summary>
     public class CryptoRandomNumberGenerator : IDisposable
     {
+        /// <summary>
+        ///     The default buffer size for storing generated random bytes.
+        /// </summary>
         public const int DefaultBufferSize = 0x3FFF;
 
         private bool _disposed;
@@ -12,6 +18,10 @@ namespace HotMinds.Utils
         private readonly byte[] _buffer;
         private int _position;
 
+        /// <summary>
+        ///     Create the random number generator instance.
+        /// </summary>
+        /// <param name="bufferSize">The internal buffer size.</param>
         public CryptoRandomNumberGenerator(int bufferSize = DefaultBufferSize)
         {
             _rng = new RNGCryptoServiceProvider();
@@ -19,6 +29,9 @@ namespace HotMinds.Utils
             _position = _buffer.Length;
         }
 
+        /// <summary>
+        ///     Get next random byte.
+        /// </summary>
         public byte NextByte()
         {
             this.ThrowsIfDisposed();
@@ -30,6 +43,9 @@ namespace HotMinds.Utils
             return _buffer[_position++];
         }
 
+        /// <summary>
+        ///     Get next random unsigned integer.
+        /// </summary>
         public uint NextUInt32()
         {
             this.ThrowsIfDisposed();
@@ -43,6 +59,9 @@ namespace HotMinds.Utils
             return value;
         }
 
+        /// <summary>
+        ///     Get next random unsigned long integer.
+        /// </summary>
         public ulong NextUInt64()
         {
             this.ThrowsIfDisposed();
@@ -61,6 +80,7 @@ namespace HotMinds.Utils
             if (_disposed) throw new ObjectDisposedException(this.GetType().FullName);
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (!_disposed)

@@ -6,13 +6,38 @@ using JetBrains.Annotations;
 
 namespace HotMinds.Utils
 {
+    /// <summary>
+    ///     Easy to use advanced generator of strong passwords.
+    /// </summary>
     public class CryptoPasswordGenerator : IDisposable
     {
+        /// <summary>
+        ///     The maximum possible length of the generated password.
+        /// </summary>
         public const int LengthLimit = 255;
 
+        /// <summary>
+        ///     The character set of Latin letters in lowercase. From the set exclude look-alike characters. 
+        ///     This set of characters safe for human use.
+        /// </summary>
         public const string SafeLowerCaseLetterSymbols = "abcdefghjkmnpqrstuvwxyz";
+
+        /// <summary>
+        ///     The character set of Latin letters in uppercase. From the set exclude look-alike characters. 
+        ///     This set of characters safe for human use.
+        /// </summary>
         public const string SafeUpperCaseLetterSymbols = "ABCDEFGHJKMNPQRSTUVWXYZ";
+
+        /// <summary>
+        ///     The character set of digits. From the set exclude look-alike characters. 
+        ///     This set of characters safe for human use.
+        /// </summary>
         public const string SafeDigitSymbols = "23456789";
+
+        /// <summary>
+        ///     The character set of special symbols. The character set does not include look-alike characters. 
+        ///     This set of characters safe for human use and in most cases (e.g., send by network or store in a text files).
+        /// </summary>
         public const string SafeSpecialSymbols = "-_#$@~";
 
         private bool _disposed;
@@ -23,6 +48,19 @@ namespace HotMinds.Utils
 
         private readonly CryptoRandomNumberGenerator _randomNumber;
 
+        /// <summary>
+        ///     Create a default instance of the password generator.
+        /// </summary>
+        /// <param name="minLength">Minimum password length.</param>
+        /// <param name="maxLength">Maximum password length.</param>
+        /// <param name="lowerCaseLetterMinHit">The minimum number of hits lowercase letters.</param>
+        /// <param name="lowerCaseLetterMaxHit">The maximum number of hits lowercase letters (-1 is infinity).</param>
+        /// <param name="upperCaseLetterMinHit">The minimum number of hits uppercase letters.</param>
+        /// <param name="upperCaseLetterMaxHit">The maximum number of hits uppercase letters (-1 is infinity).</param>
+        /// <param name="digitMinHit">The minimum number of hits digits.</param>
+        /// <param name="digitMaxHit">The maximum number of hits digits (-1 is infinity).</param>
+        /// <param name="specialMinHit">The minimum number of hits special symbols.</param>
+        /// <param name="specialMaxHit">The maximum number of hits special symbols (-1 is infinity).</param>
         public CryptoPasswordGenerator(
             int minLength = 6,
             int maxLength = 8,
@@ -47,6 +85,12 @@ namespace HotMinds.Utils
             };
         }
 
+        /// <summary>
+        ///     The minimum password length.
+        /// </summary>
+        /// <exception cref="ArgumentException">
+        ///     The value must by greater zero and less then <see cref="MaxLength"/>.
+        /// </exception>
         public int MinLength
         {
             get { return _minLength; }
@@ -61,6 +105,12 @@ namespace HotMinds.Utils
             }
         }
 
+        /// <summary>
+        ///     The maximum password length.
+        /// </summary>
+        /// <exception cref="ArgumentException">
+        ///     The value must by greater <see cref="MinLength"/> and less or equals then <see cref="LengthLimit"/>.
+        /// </exception>
         public int MaxLength
         {
             get { return _maxLength; }
@@ -76,6 +126,11 @@ namespace HotMinds.Utils
             }
         }
 
+        /// <summary>
+        ///     Setup a new collection of groups of character sets.
+        /// </summary>
+        /// <exception cref="ArgumentNullException">The value must be not null.</exception>
+        /// <exception cref="ArgumentException">The value must not be an empty collection.</exception>
         public CharsetGroup[] CharsetGroups
         {
             get { return _charsetGroups; }
@@ -89,6 +144,11 @@ namespace HotMinds.Utils
             }
         }
 
+        /// <summary>
+        ///     Generate new crypto strong password.
+        /// </summary>
+        /// <returns>
+        ///     A string containing a password generated within the length specified.</returns>
         public string Generate()
         {
             this.ThrowsIfDisposed();
@@ -201,28 +261,53 @@ namespace HotMinds.Utils
             }
         }
 
+        /// <summary>
+        ///     A group of characters (charset) for password generation.
+        /// </summary>
         public class CharsetGroup
         {
+            /// <summary>
+            ///     The character set.
+            /// </summary>
             public string Charset { get; }
 
+
+            /// <summary>
+            ///     The minimum number of hits.
+            /// </summary>
             public int MinHits { get; }
 
+            /// <summary>
+            ///     The maximum number of hits.
+            /// </summary>
             public int MaxHits { get; }
 
+            /// <summary>
+            ///     Create instance of characters group.
+            /// </summary>
+            /// <param name="charset">The character set.</param>
+            /// <param name="minHits">The minimum number of hits. Default is 0.</param>
+            /// <param name="maxHits">The maximun number of hits. Default is infinity (-1).</param>
+            /// <exception cref="ArgumentNullException">The character set must be not null.</exception>
+            /// <exception cref="ArgumentException">
+            ///     The character set must be not empty.
+            ///     The minimal hits must not be less than zero.
+            ///     The maximal hits must not be less than minimal hits.
+            /// </exception>
             public CharsetGroup([NotNull] string charset, int minHits = 0, int maxHits = -1)
             {
                 if (charset == null)
                     throw new ArgumentNullException(nameof(charset));
                 if (string.IsNullOrEmpty(charset))
-                    throw new ArgumentException("Charset must not be empty.", nameof(charset));
+                    throw new ArgumentException("The character set must not be empty.", nameof(charset));
                 if (minHits < 0)
-                    throw new ArgumentException("Minimal hits must not be less than zero.", nameof(minHits));
+                    throw new ArgumentException("The minimal hits must not be less than zero.", nameof(minHits));
                 if (maxHits < 0)
                 {
                     maxHits = Int32.MaxValue;
                 }
                 if (minHits > maxHits)
-                    throw new ArgumentException("Maximal hits must not be less than minimal hits.", nameof(maxHits));
+                    throw new ArgumentException("The maximal hits must not be less than minimal hits.", nameof(maxHits));
                 this.Charset = charset;
                 this.MinHits = minHits;
                 this.MaxHits = maxHits;

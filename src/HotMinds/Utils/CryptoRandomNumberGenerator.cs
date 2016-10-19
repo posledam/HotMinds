@@ -44,6 +44,14 @@ namespace HotMinds.Utils
         }
 
         /// <summary>
+        ///     Get next random integer.
+        /// </summary>
+        public int NextInt32()
+        {
+            return (int)(this.NextUInt32() & 0x7FFFFFFFu);
+        }
+
+        /// <summary>
         ///     Get next random unsigned integer.
         /// </summary>
         public uint NextUInt32()

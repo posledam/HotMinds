@@ -50,6 +50,7 @@ Methods
 | --- | --- | --- | 
 | `void` | Dispose() |  | 
 | `Byte` | NextByte() | Get next random byte. | 
+| `Int32` | NextInt32() | Get next random integer. | 
 | `UInt32` | NextUInt32() | Get next random unsigned integer. | 
 | `UInt64` | NextUInt64() | Get next random unsigned long integer. | 
 

@@ -27,7 +27,7 @@ namespace HotMinds.Collections
         }
 
         /// <summary>
-        ///     Get value from dictionary by key or default value.
+        ///     Get value from dictionary by key or default value. Supports only IReadOnlyDictionary implementations.
         /// </summary>
         /// <param name="dictionary">Source dictionary, can be null.</param>
         /// <param name="key">Search key, can be null.</param>
@@ -38,14 +38,17 @@ namespace HotMinds.Collections
         ///     Returns specified default value, if soucre dictionaty is null, or key is null, or key not found in source dictionary.
         /// </returns>
         [CanBeNull]
-        public static TValue GetOrDefault<TKey, TValue>([CanBeNull] this IDictionary<TKey, TValue> dictionary, [CanBeNull] TKey key,
+        public static TValue GetOrDefault<TKey, TValue>([CanBeNull] this IEnumerable<KeyValuePair<TKey, TValue>> dictionary, [CanBeNull] TKey key,
             TValue defaultValue = default(TValue))
         {
-            if (dictionary == null || key == null) return defaultValue;
-            TValue value;
-            if (dictionary.TryGetValue(key, out value))
+            var readOnlyDictionary = dictionary as IReadOnlyDictionary<TKey, TValue>;
+            if (readOnlyDictionary != null && key != null)
             {
-                return value;
+                TValue value;
+                if (readOnlyDictionary.TryGetValue(key, out value))
+                {
+                    return value;
+                }
             }
             return defaultValue;
         }

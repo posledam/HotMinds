@@ -10,7 +10,7 @@ Static Methods
 
 | Type | Name | Summary | 
 | --- | --- | --- | 
-| `TValue` | GetOrDefault(this `IDictionary<TKey, TValue>` dictionary, `TKey` key, `TValue` defaultValue = null) |  | 
+| `TValue` | GetOrDefault(this `IEnumerable<KeyValuePair<TKey, TValue>>` dictionary, `TKey` key, `TValue` defaultValue = null) |  | 
 | `Boolean` | IsEmpty(this `IEnumerable<T>` collection) |  | 
 
 

@@ -79,13 +79,11 @@ namespace HotMinds.UnitTests
 
             // default default
             Assert.That(strIntDic.GetOrDefault("custom"), Is.EqualTo(123));
-            Assert.That(strIntDic.GetOrDefault(null), Is.EqualTo(0));
             Assert.That(strIntDic.GetOrDefault(string.Empty), Is.EqualTo(0));
             Assert.That(strIntDic.GetOrDefault("abracadabra"), Is.EqualTo(0));
 
             // custom default
             Assert.That(strIntDic.GetOrDefault("custom", 555), Is.EqualTo(123));
-            Assert.That(strIntDic.GetOrDefault(null, 555), Is.EqualTo(555));
             Assert.That(strIntDic.GetOrDefault(string.Empty, 555), Is.EqualTo(555));
             Assert.That(strIntDic.GetOrDefault("abracadabra", 555), Is.EqualTo(555));
         }

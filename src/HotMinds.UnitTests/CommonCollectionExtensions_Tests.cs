@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using HotMinds.Collections;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
@@ -45,6 +46,48 @@ namespace HotMinds.UnitTests
             var strPreset = new CollectionsPreset<string>(new List<string> { "first", "second", "third", "fourth", "soon" });
             intPreset.AssertIsEmpty(Is.False);
             strPreset.AssertIsEmpty(Is.False);
+        }
+
+        [Test]
+        public void GetOrDefault_IntStr_Test()
+        {
+            // test null
+            Assert.That(((IDictionary<int, string>)null).GetOrDefault(555), Is.Null);
+            Assert.That(((IDictionary<int, string>)null).GetOrDefault(555, "some"), Is.EqualTo("some"));
+
+            var intStrDic = new Dictionary<int, string> { { 123, "custom" } };
+
+            // default default
+            Assert.That(intStrDic.GetOrDefault(123), Is.EqualTo("custom"));
+            Assert.That(intStrDic.GetOrDefault(0), Is.Null);
+            Assert.That(intStrDic.GetOrDefault(555), Is.Null);
+
+            // custom default
+            Assert.That(intStrDic.GetOrDefault(123, "some"), Is.EqualTo("custom"));
+            Assert.That(intStrDic.GetOrDefault(0, "some"), Is.EqualTo("some"));
+            Assert.That(intStrDic.GetOrDefault(555, "some"), Is.EqualTo("some"));
+        }
+
+        [Test]
+        public void GetOrDefault_StrInt_Test()
+        {
+            // test null
+            Assert.That(((IDictionary<string, int>)null).GetOrDefault("some"), Is.EqualTo(0));
+            Assert.That(((IDictionary<string, int>)null).GetOrDefault("some", 555), Is.EqualTo(555));
+
+            var strIntDic = new Dictionary<string, int> { { "custom", 123 } };
+
+            // default default
+            Assert.That(strIntDic.GetOrDefault("custom"), Is.EqualTo(123));
+            Assert.That(strIntDic.GetOrDefault(null), Is.EqualTo(0));
+            Assert.That(strIntDic.GetOrDefault(string.Empty), Is.EqualTo(0));
+            Assert.That(strIntDic.GetOrDefault("abracadabra"), Is.EqualTo(0));
+
+            // custom default
+            Assert.That(strIntDic.GetOrDefault("custom", 555), Is.EqualTo(123));
+            Assert.That(strIntDic.GetOrDefault(null, 555), Is.EqualTo(555));
+            Assert.That(strIntDic.GetOrDefault(string.Empty, 555), Is.EqualTo(555));
+            Assert.That(strIntDic.GetOrDefault("abracadabra", 555), Is.EqualTo(555));
         }
 
         public class CollectionsPreset<T>

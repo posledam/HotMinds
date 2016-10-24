@@ -141,6 +141,7 @@ namespace HotMinds.Utils
                     throw new ArgumentException("Array must not be empty.", nameof(value));
                 _charsetGroups = value;
                 _charsetGroupsValid = false;
+                this.ValidateCharsetGroups();
             }
         }
 

@@ -62,3 +62,19 @@ Static Fields
 | `Int32` | DefaultBufferSize | The default buffer size for storing generated random bytes. | 
 
 
+## `DecimalExtensions`
+
+Decimal number useful extensions.
+```csharp
+public static class HotMinds.Utils.DecimalExtensions
+
+```
+
+Static Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `Decimal` | Power(this `Decimal` d, `Int32` pow) | Returns a specified number raised to the specified power (simple). | 
+| `Decimal` | Trim(this `Decimal` d, `Int32` scale, `Int32` precision = 29) | Trim the decimal number to the specified scale and precision. The integral part is truncated on the left.  The fractional part is truncated on the right. Nothing is rounded. | 
+
+

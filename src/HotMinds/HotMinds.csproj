@@ -57,6 +57,7 @@
     <Compile Include="Strings\NumberStringExtensions.cs" />
     <Compile Include="Utils\CryptoRandomNumberGenerator.cs" />
     <Compile Include="Utils\CryptoPasswordGenerator.cs" />
+    <Compile Include="Utils\DecimalExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">

@@ -25,5 +25,29 @@ namespace HotMinds.Collections
             }
             return !collection.Any();
         }
+
+        /// <summary>
+        ///     Get value from dictionary by key or default value.
+        /// </summary>
+        /// <param name="dictionary">Source dictionary, can be null.</param>
+        /// <param name="key">Search key, can be null.</param>
+        /// <param name="defaultValue">Default value, can be null.</param>
+        /// <typeparam name="TKey">Key type.</typeparam>
+        /// <typeparam name="TValue">Value type.</typeparam>
+        /// <returns>
+        ///     Returns specified default value, if soucre dictionaty is null, or key is null, or key not found in source dictionary.
+        /// </returns>
+        [CanBeNull]
+        public static TValue GetOrDefault<TKey, TValue>([CanBeNull] this IDictionary<TKey, TValue> dictionary, [CanBeNull] TKey key,
+            TValue defaultValue = default(TValue))
+        {
+            if (dictionary == null || key == null) return defaultValue;
+            TValue value;
+            if (dictionary.TryGetValue(key, out value))
+            {
+                return value;
+            }
+            return defaultValue;
+        }
     }
 }

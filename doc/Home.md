@@ -21,4 +21,5 @@
 
 - [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
 - [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
+- [`DecimalExtensions`](HotMinds.Utils#decimalextensions)
 

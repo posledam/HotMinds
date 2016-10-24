@@ -80,15 +80,46 @@ namespace HotMinds.UnitTests
         [Test]
         public void Set_CharsetGroups_Test()
         {
-            var cryptoPasswordGenerator = new CryptoPasswordGenerator();
+            var cryptoPasswordGenerator = new CryptoPasswordGenerator(minLength: 5, maxLength: 7);
+
+            var defaultCharsetGroups = cryptoPasswordGenerator.CharsetGroups;
+
+            Assert.That(defaultCharsetGroups, Is.Not.Null.And.Length.EqualTo(4));
+            Assert.That(defaultCharsetGroups[0].Charset, Is.EqualTo(CryptoPasswordGenerator.SafeLowerCaseLetterSymbols));
+            Assert.That(defaultCharsetGroups[1].Charset, Is.EqualTo(CryptoPasswordGenerator.SafeUpperCaseLetterSymbols));
+            Assert.That(defaultCharsetGroups[2].Charset, Is.EqualTo(CryptoPasswordGenerator.SafeDigitSymbols));
+            Assert.That(defaultCharsetGroups[3].Charset, Is.EqualTo(CryptoPasswordGenerator.SafeSpecialSymbols));
 
             // null
             Assert.That(() => { cryptoPasswordGenerator.CharsetGroups = null; }, Throws
                 .ArgumentNullException.With.Property("ParamName").EqualTo("value"));
+
+            Assert.That(() => { cryptoPasswordGenerator.CharsetGroups = new CryptoPasswordGenerator.CharsetGroup[0]; }, Throws
+                .ArgumentException.With.Property("ParamName").EqualTo("value"));
+
+            Assert.That(() =>
+            {
+                cryptoPasswordGenerator.CharsetGroups = new[]
+                {
+                    new CryptoPasswordGenerator.CharsetGroup("abc",3),
+                    new CryptoPasswordGenerator.CharsetGroup("123",3)
+                };
+            }, Throws
+                .InstanceOf<InvalidOperationException>().With.Message.EqualTo("The total of minimum hits greater than the minimum password length."));
+
+            Assert.That(() =>
+            {
+                cryptoPasswordGenerator.CharsetGroups = new[]
+                {
+                    new CryptoPasswordGenerator.CharsetGroup("abc",1, 2),
+                    new CryptoPasswordGenerator.CharsetGroup("123",1, 2)
+                };
+            }, Throws
+                .InstanceOf<InvalidOperationException>().With.Message.EqualTo("The total of maximum hits less than the minimum password length."));
         }
 
         [Test]
-        public void Generate_Test()
+        public void Generate_Default_Test()
         {
             var cryptoPasswordGenerator = new CryptoPasswordGenerator();
 
@@ -105,6 +136,32 @@ namespace HotMinds.UnitTests
 
             TestContext.WriteLine("Min length: {0}", minLength);
             TestContext.WriteLine("Max length: {0}", maxLength);
+
+            Assert.That(minLength, Is.GreaterThanOrEqualTo(cryptoPasswordGenerator.MinLength));
+            Assert.That(maxLength, Is.LessThanOrEqualTo(cryptoPasswordGenerator.MaxLength));
+        }
+
+        [Test]
+        public void Generate_Equals_MinMaxLength_Test()
+        {
+            var cryptoPasswordGenerator = new CryptoPasswordGenerator(6, 6);
+
+            var minLength = int.MaxValue;
+            var maxLength = int.MinValue;
+
+            for (int i = 0; i < 100; i++)
+            {
+                var password = cryptoPasswordGenerator.Generate();
+                minLength = Math.Min(minLength, password.Length);
+                maxLength = Math.Max(maxLength, password.Length);
+                TestContext.WriteLine("Generated: {0}", password);
+            }
+
+            TestContext.WriteLine("Min length: {0}", minLength);
+            TestContext.WriteLine("Max length: {0}", maxLength);
+
+            Assert.That(minLength, Is.EqualTo(6));
+            Assert.That(maxLength, Is.EqualTo(6));
         }
 
         [Test]
@@ -121,6 +178,23 @@ namespace HotMinds.UnitTests
             sw.Stop();
             TestContext.WriteLine("Generated: {0}", sw.Elapsed);
             Assert.That(sw.Elapsed.TotalSeconds, Is.LessThan(0.5));
+        }
+
+        [Test]
+        public void CharsetGroup_Test()
+        {
+            Assert.That(() => new CryptoPasswordGenerator.CharsetGroup(null), Throws
+                .ArgumentNullException.With.Property("ParamName").EqualTo("charset"));
+            Assert.That(() => new CryptoPasswordGenerator.CharsetGroup(string.Empty), Throws
+                .ArgumentException.With.Property("ParamName").EqualTo("charset"));
+            Assert.That(() => new CryptoPasswordGenerator.CharsetGroup("abc", -1), Throws
+                .ArgumentException.With.Property("ParamName").EqualTo("minHits"));
+            Assert.That(() => new CryptoPasswordGenerator.CharsetGroup("abc", 6, 5), Throws
+                .ArgumentException.With.Property("ParamName").EqualTo("maxHits"));
+
+            var charsetGroup = new CryptoPasswordGenerator.CharsetGroup("abc", 6, -1); // max hits unlimited
+
+            Assert.That(charsetGroup.MaxHits, Is.EqualTo(int.MaxValue));
         }
     }
 }

@@ -11,7 +11,7 @@ namespace HotMinds.Utils
         /// <summary>
         ///     The default buffer size for storing generated random bytes.
         /// </summary>
-        public const int DefaultBufferSize = 0x3FFF;
+        public const int DefaultBufferSize = 0x1000;
 
         private bool _disposed;
         private readonly RNGCryptoServiceProvider _rng;

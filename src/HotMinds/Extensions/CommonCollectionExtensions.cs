@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 
@@ -41,6 +42,8 @@ namespace HotMinds.Extensions
         public static TValue GetOrDefault<TKey, TValue>([CanBeNull] this IEnumerable<KeyValuePair<TKey, TValue>> dictionary, [NotNull] TKey key,
             TValue defaultValue = default(TValue))
         {
+            if (key == null) throw new ArgumentNullException(nameof(key));
+            if (dictionary == null) return defaultValue;
             var readOnlyDictionary = dictionary as IReadOnlyDictionary<TKey, TValue>;
             if (readOnlyDictionary != null)
             {
@@ -48,6 +51,30 @@ namespace HotMinds.Extensions
                 if (readOnlyDictionary.TryGetValue(key, out value))
                 {
                     return value;
+                }
+            }
+            else
+            {
+                // IDictionary does not inherit IReadOnlyDictionary, so we need this workaround
+                var iDictionary = dictionary as IDictionary<TKey, TValue>;
+                if (iDictionary != null)
+                {
+                    TValue value;
+                    if (iDictionary.TryGetValue(key, out value))
+                    {
+                        return value;
+                    }
+                }
+                // the heaviest case...
+                else
+                {
+                    foreach (var keyValuePair in dictionary)
+                    {
+                        if (keyValuePair.Key.Equals(key))
+                        {
+                            return keyValuePair.Value;
+                        }
+                    }
                 }
             }
             return defaultValue;

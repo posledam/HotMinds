@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
@@ -48,45 +49,56 @@ namespace HotMinds.UnitTests
             strPreset.AssertIsEmpty(Is.False);
         }
 
-        [Test]
-        public void GetOrDefault_IntStr_Test()
+        private void GetOrDefault_Tester<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> dictionary,
+            TKey hasKey,
+            TValue hasValue,
+            TKey absentKey,
+            TValue defaultValue)
         {
-            // test null
-            Assert.That(((IDictionary<int, string>)null).GetOrDefault(555), Is.Null);
-            Assert.That(((IDictionary<int, string>)null).GetOrDefault(555, "some"), Is.EqualTo("some"));
+            // check null
+            Assert.That(((IEnumerable<KeyValuePair<TKey, TValue>>)null).GetOrDefault(hasKey), Is.EqualTo(default(TValue)));
+            Assert.That(((IEnumerable<KeyValuePair<TKey, TValue>>)null).GetOrDefault(hasKey, defaultValue), Is.EqualTo(defaultValue));
 
-            var intStrDic = new Dictionary<int, string> { { 123, "custom" } };
+            // commoon check
+            Assert.That(dictionary.GetOrDefault(hasKey), Is.EqualTo(hasValue));
+            Assert.That(dictionary.GetOrDefault(hasKey, defaultValue), Is.EqualTo(hasValue));
 
-            // default default
-            Assert.That(intStrDic.GetOrDefault(123), Is.EqualTo("custom"));
-            Assert.That(intStrDic.GetOrDefault(0), Is.Null);
-            Assert.That(intStrDic.GetOrDefault(555), Is.Null);
-
-            // custom default
-            Assert.That(intStrDic.GetOrDefault(123, "some"), Is.EqualTo("custom"));
-            Assert.That(intStrDic.GetOrDefault(0, "some"), Is.EqualTo("some"));
-            Assert.That(intStrDic.GetOrDefault(555, "some"), Is.EqualTo("some"));
+            Assert.That(dictionary.GetOrDefault(absentKey), Is.EqualTo(default(TValue)));
+            Assert.That(dictionary.GetOrDefault(absentKey, defaultValue), Is.EqualTo(defaultValue));
         }
 
         [Test]
-        public void GetOrDefault_StrInt_Test()
+        public void GetOrDefault_Test()
         {
-            // test null
-            Assert.That(((IDictionary<string, int>)null).GetOrDefault("some"), Is.EqualTo(0));
-            Assert.That(((IDictionary<string, int>)null).GetOrDefault("some", 555), Is.EqualTo(555));
+            // test key null
+            Assert.That(() => ((IDictionary<string, int>)null).GetOrDefault(null), Throws
+                .ArgumentNullException.With.Property("ParamName").EqualTo("key"));
+            Assert.That(() => ((IDictionary<string, int>)null).GetOrDefault(null, 555), Throws
+                .ArgumentNullException.With.Property("ParamName").EqualTo("key"));
+            Assert.That(() => new Dictionary<string, string>().GetOrDefault(null), Throws
+                .ArgumentNullException.With.Property("ParamName").EqualTo("key"));
+            Assert.That(() => new Dictionary<string, string>().GetOrDefault(null, "123"), Throws
+                .ArgumentNullException.With.Property("ParamName").EqualTo("key"));
 
-            var strIntDic = new Dictionary<string, int> { { "custom", 123 } };
+            // IReadOnlyDictionary
+            this.GetOrDefault_Tester(new Dictionary<int, string> { { 123, "-555-" } },
+                123, "-555-", 111, "it is default value");
+            this.GetOrDefault_Tester(new Dictionary<string, int> { { "123", 555 } },
+                "123", 555, "222", 1000);
 
-            // default default
-            Assert.That(strIntDic.GetOrDefault("custom"), Is.EqualTo(123));
-            Assert.That(strIntDic.GetOrDefault(string.Empty), Is.EqualTo(0));
-            Assert.That(strIntDic.GetOrDefault("abracadabra"), Is.EqualTo(0));
+            // IDictionary
+            this.GetOrDefault_Tester(new OnlyIDictionaryImplementation<int, string> { { 123, "-555-" } },
+                123, "-555-", 111, "it is default value");
+            this.GetOrDefault_Tester(new OnlyIDictionaryImplementation<string, int> { { "123", 555 } },
+                "123", 555, "222", 1000);
 
-            // custom default
-            Assert.That(strIntDic.GetOrDefault("custom", 555), Is.EqualTo(123));
-            Assert.That(strIntDic.GetOrDefault(string.Empty, 555), Is.EqualTo(555));
-            Assert.That(strIntDic.GetOrDefault("abracadabra", 555), Is.EqualTo(555));
+            // IEnumerable
+            this.GetOrDefault_Tester(new[] { new KeyValuePair<int, string>(123, "-555-") },
+                123, "-555-", 111, "it is default value");
+            this.GetOrDefault_Tester(new[] { new KeyValuePair<string, int>("123", 555) },
+                "123", 555, "222", 1000);
         }
+
 
         public class CollectionsPreset<T>
         {
@@ -126,5 +138,84 @@ namespace HotMinds.UnitTests
                 Assert.That(DictionaryInterface.IsEmpty(), constraint);
             }
         }
+    }
+
+    public class OnlyIDictionaryImplementation<TKey, TValue> : IDictionary<TKey, TValue>
+    {
+        private readonly Dictionary<TKey, TValue> _dictionary;
+
+        public OnlyIDictionaryImplementation()
+        {
+            _dictionary = new Dictionary<TKey, TValue>();
+        }
+
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
+        {
+            return _dictionary.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public void Add(KeyValuePair<TKey, TValue> item)
+        {
+            ((IDictionary<TKey, TValue>)_dictionary).Add(item);
+        }
+
+        public void Clear()
+        {
+            _dictionary.Clear();
+        }
+
+        public bool Contains(KeyValuePair<TKey, TValue> item)
+        {
+            return ((IDictionary<TKey, TValue>)_dictionary).Contains(item);
+        }
+
+        public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+        {
+            ((IDictionary<TKey, TValue>)_dictionary).CopyTo(array, arrayIndex);
+        }
+
+        public bool Remove(KeyValuePair<TKey, TValue> item)
+        {
+            return ((IDictionary<TKey, TValue>)_dictionary).Remove(item);
+        }
+
+        public int Count => _dictionary.Count;
+
+        public bool IsReadOnly => ((IDictionary<TKey, TValue>)_dictionary).IsReadOnly;
+
+        public bool ContainsKey(TKey key)
+        {
+            return _dictionary.ContainsKey(key);
+        }
+
+        public void Add(TKey key, TValue value)
+        {
+            _dictionary.Add(key, value);
+        }
+
+        public bool Remove(TKey key)
+        {
+            return _dictionary.Remove(key);
+        }
+
+        public bool TryGetValue(TKey key, out TValue value)
+        {
+            return _dictionary.TryGetValue(key, out value);
+        }
+
+        public TValue this[TKey key]
+        {
+            get { return _dictionary[key]; }
+            set { _dictionary[key] = value; }
+        }
+
+        public ICollection<TKey> Keys => _dictionary.Keys;
+
+        public ICollection<TValue> Values => _dictionary.Values;
     }
 }

@@ -19,4 +19,7 @@
 
 - [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
 - [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
+- [`FileSize`](HotMinds.Utils#filesize)
+- [`FileSizeBinaryPrefix`](HotMinds.Utils#filesizebinaryprefix)
+- [`FileSizePrefix`](HotMinds.Utils#filesizeprefix)
 

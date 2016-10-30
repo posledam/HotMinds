@@ -55,9 +55,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\CommonStringExtensions.cs" />
     <Compile Include="Extensions\NumberStringExtensions.cs" />
+    <Compile Include="Resources\Annotations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Annotations.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Annotations.ru-RU.Designer.cs">
+      <DependentUpon>Annotations.ru-RU.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Utils\CryptoRandomNumberGenerator.cs" />
     <Compile Include="Utils\CryptoPasswordGenerator.cs" />
     <Compile Include="Extensions\DecimalExtensions.cs" />
+    <Compile Include="Utils\FileSize.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">
@@ -65,7 +76,17 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Annotations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Annotations.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Annotations.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Annotations.ru-RU.Designer.cs</LastGenOutput>
+      <DependentUpon>Annotations.resx</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)..\tools\MarkdownGenerator.exe "$(TargetPath)" "$(SolutionDir)..\doc"</PostBuildEvent>

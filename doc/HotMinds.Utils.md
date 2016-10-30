@@ -62,3 +62,87 @@ Static Fields
 | `Int32` | DefaultBufferSize | The default buffer size for storing generated random bytes. | 
 
 
+## `FileSize`
+
+```csharp
+public struct HotMinds.Utils.FileSize
+
+```
+
+Properties
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `FileSizeBinaryPrefix` | BinaryPrefix |  | 
+| `Double` | BinarySize |  | 
+| `Int64` | ByteSize |  | 
+| `FileSizePrefix` | Prefix |  | 
+| `Double` | Size |  | 
+
+
+Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `String` | ToBinaryPrefix() |  | 
+| `String` | ToPrefix() |  | 
+
+
+Static Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `Double` | CalcSize(`Int64` byteSize, `FileSizePrefix` sizePrefix) |  | 
+| `Double` | CalcSize(`Int64` byteSize, `FileSizeBinaryPrefix` sizeBinaryPrefix) |  | 
+| `FileSizeBinaryPrefix` | DetermineBinaryPrefix(`Int64` byteSize) |  | 
+| `FileSizePrefix` | DeterminePrefix(`Int64` byteSize) |  | 
+| `String` | GetPrefixName(`FileSizePrefix` prefix) |  | 
+| `String` | GetPrefixName(`FileSizeBinaryPrefix` binaryPrefix) |  | 
+| `String` | ToBinaryPrefix(`Int64` byteSize) |  | 
+| `String` | ToPrefix(`Int64` byteSize) |  | 
+
+
+## `FileSizeBinaryPrefix`
+
+```csharp
+public enum HotMinds.Utils.FileSizeBinaryPrefix
+    : Enum, IComparable, IFormattable, IConvertible
+
+```
+
+Enum
+
+| Value | Name | Summary | 
+| --- | --- | --- | 
+| `0` | Byte |  | 
+| `1` | Kibibyte |  | 
+| `2` | Mebibyte |  | 
+| `3` | Gibibyte |  | 
+| `4` | Tebibyte |  | 
+| `5` | Pebibyte |  | 
+| `6` | Exbibyte |  | 
+| `7` | Zebibyte |  | 
+| `8` | Yobibyte |  | 
+
+
+## `FileSizePrefix`
+
+```csharp
+public enum HotMinds.Utils.FileSizePrefix
+    : Enum, IComparable, IFormattable, IConvertible
+
+```
+
+Enum
+
+| Value | Name | Summary | 
+| --- | --- | --- | 
+| `0` | Byte |  | 
+| `1` | Kilobyte |  | 
+| `2` | Megabyte |  | 
+| `3` | Gigabyte |  | 
+| `4` | Terabyte |  | 
+| `5` | Petabyte |  | 
+| `6` | Exabyte |  | 
+
+

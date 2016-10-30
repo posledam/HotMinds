@@ -11,6 +11,7 @@ Static Methods
 | Type | Name | Summary | 
 | --- | --- | --- | 
 | `TValue` | GetOrDefault(this `IEnumerable<KeyValuePair<TKey, TValue>>` dictionary, `TKey` key, `TValue` defaultValue = null) |  | 
+| `Boolean` | In(this `T` value, `T[]` source) |  | 
 | `Boolean` | IsEmpty(this `IEnumerable<T>` collection) |  | 
 
 

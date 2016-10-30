@@ -99,6 +99,23 @@ namespace HotMinds.UnitTests
                 "123", 555, "222", 1000);
         }
 
+        [Test]
+        public void In_Test()
+        {
+            // default use
+            Assert.That(1.In(1, 2, 3), Is.True);
+            Assert.That(5.In(1, 2, 3), Is.False);
+            Assert.That("a".In("a", "b", "c", null), Is.True);
+            Assert.That("d".In("a", "b", "c", null), Is.False);
+
+            // empty and null source
+            Assert.That(1.In(), Is.False);
+            Assert.That(1.In((int[])null), Is.False);
+
+            // null value
+            Assert.That(((string)null).In("a", "b", "c", null), Is.True);
+            Assert.That(((string)null).In("a", "b", "c", null), Is.True);
+        }
 
         public class CollectionsPreset<T>
         {

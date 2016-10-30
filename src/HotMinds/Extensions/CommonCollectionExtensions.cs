@@ -28,6 +28,19 @@ namespace HotMinds.Extensions
         }
 
         /// <summary>
+        ///     Determines whether a sequence contains a specified element by using the default equality comparer.
+        /// </summary>
+        /// <param name="value">A sequence in which to locate a value.</param>
+        /// <param name="source">The value to locate in the sequence.</param>
+        /// <typeparam name="T">The type of the elements of source.</typeparam>
+        /// <returns>true if the source sequence contains an element that has the specified value; otherwise, false.</returns>
+        public static bool In<T>([CanBeNull] this T value, [CanBeNull] params T[] source)
+        {
+            if (source == null || source.Length == 0) return false;
+            return source.Contains(value);
+        }
+
+        /// <summary>
         ///     Get value from dictionary by key or default value. Supports only IReadOnlyDictionary implementations.
         /// </summary>
         /// <param name="dictionary">Source dictionary, can be null.</param>

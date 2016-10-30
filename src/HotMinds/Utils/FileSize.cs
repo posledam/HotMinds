@@ -120,7 +120,7 @@ namespace HotMinds.Utils
             return FileSizeBinaryPrefix.Byte;
         }
 
-        private static Dictionary<FileSizePrefix, string> _prefixCache;
+        private static Dictionary<FileSizePrefix, DisplayAttribute> _prefixCache;
 
         public static string GetPrefixName(FileSizePrefix prefix)
         {
@@ -128,12 +128,12 @@ namespace HotMinds.Utils
             {
                 _prefixCache = EnumUtils
                     .GetMetadata<FileSizePrefix>()
-                    .ToDictionary(k => k.Value, v => v.Display.GetShortName());
+                    .ToDictionary(k => k.Value, v => v.Display);
             }
-            return _prefixCache[prefix];
+            return _prefixCache[prefix].GetShortName();
         }
 
-        private static Dictionary<FileSizeBinaryPrefix, string> _binaryPrefixCache;
+        private static Dictionary<FileSizeBinaryPrefix, DisplayAttribute> _binaryPrefixCache;
 
         public static string GetPrefixName(FileSizeBinaryPrefix binaryPrefix)
         {
@@ -141,9 +141,9 @@ namespace HotMinds.Utils
             {
                 _binaryPrefixCache = EnumUtils
                     .GetMetadata<FileSizeBinaryPrefix>()
-                    .ToDictionary(k => k.Value, v => v.Display.GetShortName());
+                    .ToDictionary(k => k.Value, v => v.Display);
             }
-            return _binaryPrefixCache[binaryPrefix];
+            return _binaryPrefixCache[binaryPrefix].GetShortName();
         }
     }
 

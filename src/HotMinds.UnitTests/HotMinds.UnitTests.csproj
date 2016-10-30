@@ -60,6 +60,7 @@
     <Compile Include="CryptoRandomNumberGenerator_Tests.cs" />
     <Compile Include="DecimalExtensions_Tests.cs" />
     <Compile Include="EnumUtils_Tests.cs" />
+    <Compile Include="FileSize_Tests.cs" />
     <Compile Include="NumberStringExtensions_Tests.cs" />
     <Compile Include="LinqExtensions_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using JetBrains.Annotations;
 
@@ -63,6 +64,21 @@ namespace HotMinds.Extensions
         public static bool IsNullOrWhiteSpace([CanBeNull] this string str)
         {
             return string.IsNullOrWhiteSpace(str);
+        }
+
+        /// <summary>
+        ///     Convert string into Stream.
+        /// </summary>
+        /// <param name="s">Source string.</param>
+        /// <returns>Stream, with source string content. If string is null or empty, returns empty stream.</returns>
+        [NotNull]
+        public static Stream ToStream([CanBeNull] this string s)
+        {
+            var stream = string.IsNullOrEmpty(s)
+                ? new MemoryStream()
+                : new MemoryStream(Encoding.UTF8.GetBytes(s));
+            stream.Seek(0L, SeekOrigin.Begin);
+            return stream;
         }
 
         /// <summary>

@@ -15,6 +15,10 @@
 - [`LinqExtensions`](HotMinds.Extensions#linqextensions)
 - [`NumberStringExtensions`](HotMinds.Extensions#numberstringextensions)
 
+## [HotMinds.Resources](HotMinds.Resources)
+
+- [`Annotations`](HotMinds.Resources#annotations)
+
 ## [HotMinds.Utils](HotMinds.Utils)
 
 - [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)

@@ -144,5 +144,7 @@ Enum
 | `4` | Terabyte |  | 
 | `5` | Petabyte |  | 
 | `6` | Exabyte |  | 
+| `7` | Zettabyte |  | 
+| `8` | Yottabyte |  | 
 
 

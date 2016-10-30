@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using HotMinds.Enums;
 using JetBrains.Annotations;
 
-namespace HotMinds.Enums
+namespace HotMinds.Extensions
 {
     /// <summary>
     ///     Extensions for Enum value and collections of <see cref="EnumMetadata"/>.

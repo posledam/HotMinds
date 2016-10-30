@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HotMinds.Collections;
+using HotMinds.Extensions;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

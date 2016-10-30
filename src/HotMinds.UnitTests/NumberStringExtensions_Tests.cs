@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using HotMinds.Strings;
+using HotMinds.Extensions;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

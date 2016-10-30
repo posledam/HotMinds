@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using HotMinds.Collections;
+using HotMinds.Extensions;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 

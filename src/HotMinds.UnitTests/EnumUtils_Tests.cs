@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using HotMinds.Enums;
+using HotMinds.Extensions;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

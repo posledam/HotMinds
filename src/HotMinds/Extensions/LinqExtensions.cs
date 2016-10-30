@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HotMinds.Collections
+namespace HotMinds.Extensions
 {
     /// <summary>
     ///     Very useful simple LINQ extensions.

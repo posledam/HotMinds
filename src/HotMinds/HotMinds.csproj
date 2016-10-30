@@ -47,17 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\CommonCollectionExtensions.cs" />
-    <Compile Include="Collections\LinqExtensions.cs" />
-    <Compile Include="Enums\EnumExtensions.cs" />
+    <Compile Include="Extensions\CommonCollectionExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Enums\EnumMetadata.cs" />
     <Compile Include="Enums\EnumUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strings\CommonStringExtensions.cs" />
-    <Compile Include="Strings\NumberStringExtensions.cs" />
+    <Compile Include="Extensions\CommonStringExtensions.cs" />
+    <Compile Include="Extensions\NumberStringExtensions.cs" />
     <Compile Include="Utils\CryptoRandomNumberGenerator.cs" />
     <Compile Include="Utils\CryptoPasswordGenerator.cs" />
-    <Compile Include="Utils\DecimalExtensions.cs" />
+    <Compile Include="Extensions\DecimalExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">

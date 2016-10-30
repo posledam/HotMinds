@@ -2,7 +2,7 @@
 using System.Text;
 using JetBrains.Annotations;
 
-namespace HotMinds.Strings
+namespace HotMinds.Extensions
 {
     /// <summary>
     ///     Common string extensions.

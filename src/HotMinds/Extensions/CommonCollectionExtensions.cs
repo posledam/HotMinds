@@ -2,7 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace HotMinds.Collections
+namespace HotMinds.Extensions
 {
     /// <summary>
     ///     Common collections (enumerable) extensions.

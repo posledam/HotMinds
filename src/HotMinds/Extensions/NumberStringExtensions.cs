@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace HotMinds.Strings
+namespace HotMinds.Extensions
 {
     /// <summary>
     ///     Numeric types extensions with string interactions.

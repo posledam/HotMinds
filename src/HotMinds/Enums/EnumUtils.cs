@@ -21,8 +21,8 @@ namespace HotMinds.Enums
             = new ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>();
 
         // Internal Enum metadata cache by special Enum key.
-        internal static readonly Dictionary<EnumKey, EnumMetadata> FieldCache
-            = new Dictionary<EnumKey, EnumMetadata>();
+        internal static readonly ConcurrentDictionary<EnumKey, EnumMetadata> FieldCache
+            = new ConcurrentDictionary<EnumKey, EnumMetadata>();
 
         #endregion internal static fields
 
@@ -254,7 +254,8 @@ namespace HotMinds.Enums
             // internal cache
             foreach (var item in list)
             {
-                FieldCache[new EnumKey(enumType, item.Enum)] = item;
+                FieldCache.TryAdd(new EnumKey(enumType, item.Enum), item);
+                //FieldCache[new EnumKey(enumType, item.Enum)] = item;
             }
             return list;
         }

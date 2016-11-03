@@ -53,7 +53,7 @@ Static Fields
 | Type | Name | Summary | 
 | --- | --- | --- | 
 | `ConcurrentDictionary<Type, IReadOnlyCollection<EnumMetadata>>` | EnumCache |  | 
-| `Dictionary<EnumKey, EnumMetadata>` | FieldCache |  | 
+| `ConcurrentDictionary<EnumKey, EnumMetadata>` | FieldCache |  | 
 
 
 Static Methods

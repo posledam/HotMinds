@@ -15,6 +15,14 @@
 - [`LinqExtensions`](HotMinds.Extensions#linqextensions)
 - [`NumberStringExtensions`](HotMinds.Extensions#numberstringextensions)
 
+## [HotMinds.Formatting](HotMinds.Formatting)
+
+- [`FileSize`](HotMinds.Formatting#filesize)
+- [`FileSizeBinary`](HotMinds.Formatting#filesizebinary)
+- [`FileSizeBinarySuffix`](HotMinds.Formatting#filesizebinarysuffix)
+- [`FileSizeDecimal`](HotMinds.Formatting#filesizedecimal)
+- [`FileSizeDecimalSuffix`](HotMinds.Formatting#filesizedecimalsuffix)
+
 ## [HotMinds.Resources](HotMinds.Resources)
 
 - [`Annotations`](HotMinds.Resources#annotations)
@@ -23,7 +31,4 @@
 
 - [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
 - [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
-- [`FileSize`](HotMinds.Utils#filesize)
-- [`FileSizeBinaryPrefix`](HotMinds.Utils#filesizebinaryprefix)
-- [`FileSizePrefix`](HotMinds.Utils#filesizeprefix)
 

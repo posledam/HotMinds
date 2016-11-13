@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography\HashUtils.cs" />
     <Compile Include="Extensions\CommonCollectionExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -69,10 +70,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Utils\CryptoRandomNumberGenerator.cs" />
-    <Compile Include="Utils\CryptoPasswordGenerator.cs" />
+    <Compile Include="Cryptography\CryptoRandomNumberGenerator.cs" />
+    <Compile Include="Cryptography\CryptoPasswordGenerator.cs" />
     <Compile Include="Extensions\DecimalExtensions.cs" />
     <Compile Include="Formatting\FileSize.cs" />
+    <Compile Include="Cryptography\HashStreamWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">

@@ -1,5 +1,12 @@
 # References
 
+## [HotMinds.Cryptography](HotMinds.Cryptography)
+
+- [`CryptoPasswordGenerator`](HotMinds.Cryptography#cryptopasswordgenerator)
+- [`CryptoRandomNumberGenerator`](HotMinds.Cryptography#cryptorandomnumbergenerator)
+- [`HashStreamWrapper`](HotMinds.Cryptography#hashstreamwrapper)
+- [`HashUtils`](HotMinds.Cryptography#hashutils)
+
 ## [HotMinds.Enums](HotMinds.Enums)
 
 - [`EnumMetadata`](HotMinds.Enums#enummetadata)
@@ -26,9 +33,4 @@
 ## [HotMinds.Resources](HotMinds.Resources)
 
 - [`Annotations`](HotMinds.Resources#annotations)
-
-## [HotMinds.Utils](HotMinds.Utils)
-
-- [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
-- [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
 

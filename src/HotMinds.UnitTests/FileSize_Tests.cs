@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using HotMinds.Formatting;
-using HotMinds.Utils;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

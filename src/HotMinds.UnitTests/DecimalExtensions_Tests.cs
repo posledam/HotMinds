@@ -1,6 +1,5 @@
 ﻿using System;
 using HotMinds.Extensions;
-using HotMinds.Utils;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

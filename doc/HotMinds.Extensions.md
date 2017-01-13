@@ -33,7 +33,7 @@ Static Methods
 | `Boolean` | IsNullOrEmpty(this `String` str) | Extension analog of String.IsNullOrEmpty. | 
 | `Boolean` | IsNullOrWhiteSpace(this `String` str) | Extension analog of String.IsNullOrWhiteSpace. | 
 | `String` | Limit(this `String` str, `Int32` length) | If the string length is greater than the specified length, truncate it. | 
-| `Stream` | ToStream(this `String` s) | Convert string into Stream. | 
+| `Stream` | ToStream(this `String` s, `Encoding` encoding = null) | Convert string into Stream. | 
 | `String` | TrimCollapse(this `String` str) | Trim the string and replace whitespaces between words by a single space (collapse spaces). | 
 | `String` | Truncate(this `String` str, `Int32` length, `String` ellipsis = …) | If the string length is greater than the specified length, truncate it and append ellipsis. | 
 
@@ -93,5 +93,22 @@ Static Methods
 | `String` | ToRaw(this `Nullable<Single>` n) | Convert integer to raw string (invariant culture). | 
 | `String` | ToRaw(this `Double` n) | Convert integer to raw string (invariant culture). | 
 | `String` | ToRaw(this `Nullable<Double>` n) | Convert integer to raw string (invariant culture). | 
+
+
+## `ReaderWriterLockSlimExtensions`
+
+Useful extensions for .
+```csharp
+public static class HotMinds.Extensions.ReaderWriterLockSlimExtensions
+
+```
+
+Static Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `ReadLockDisposableBlock` | UseRead(this `ReaderWriterLockSlim` readerWriterLock) | Create disposable object and tries to enter the lock in read mode. | 
+| `UpgradeableReadLockDisposableBlock` | UseUpgradeableRead(this `ReaderWriterLockSlim` readerWriterLock) | Create disposable object and tries to enter the lock in upgradeable read mode. | 
+| `WriteLockDisposableBlock` | UseWrite(this `ReaderWriterLockSlim` readerWriterLock) | Create disposable object and tries to enter the lock in write mode. | 
 
 

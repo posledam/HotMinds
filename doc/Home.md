@@ -21,6 +21,7 @@
 - [`DecimalExtensions`](HotMinds.Extensions#decimalextensions)
 - [`LinqExtensions`](HotMinds.Extensions#linqextensions)
 - [`NumberStringExtensions`](HotMinds.Extensions#numberstringextensions)
+- [`ReaderWriterLockSlimExtensions`](HotMinds.Extensions#readerwriterlockslimextensions)
 
 ## [HotMinds.Formatting](HotMinds.Formatting)
 
@@ -33,4 +34,10 @@
 ## [HotMinds.Resources](HotMinds.Resources)
 
 - [`Annotations`](HotMinds.Resources#annotations)
+
+## [HotMinds.Threading](HotMinds.Threading)
+
+- [`ReadLockDisposableBlock`](HotMinds.Threading#readlockdisposableblock)
+- [`UpgradeableReadLockDisposableBlock`](HotMinds.Threading#upgradeablereadlockdisposableblock)
+- [`WriteLockDisposableBlock`](HotMinds.Threading#writelockdisposableblock)
 

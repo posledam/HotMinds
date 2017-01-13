@@ -70,13 +70,14 @@ namespace HotMinds.Extensions
         ///     Convert string into Stream.
         /// </summary>
         /// <param name="s">Source string.</param>
+        /// <param name="encoding">Encoding for convert string to Stream. Default is UTF-8.</param>
         /// <returns>Stream, with source string content. If string is null or empty, returns empty stream.</returns>
         [NotNull]
-        public static Stream ToStream([CanBeNull] this string s)
+        public static Stream ToStream([CanBeNull] this string s, Encoding encoding = null)
         {
             var stream = string.IsNullOrEmpty(s)
                 ? new MemoryStream()
-                : new MemoryStream(Encoding.UTF8.GetBytes(s));
+                : new MemoryStream((encoding ?? Encoding.UTF8).GetBytes(s));
             stream.Seek(0L, SeekOrigin.Begin);
             return stream;
         }

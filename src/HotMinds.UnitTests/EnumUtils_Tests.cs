@@ -445,10 +445,10 @@ namespace HotMinds.UnitTests
             V0,
 
             // order to bottom (default == 0)
-            [Display(Name = "Value 1", AutoGenerateField = true, Order = 1)]
+            [Display(Name = "Value 1", AutoGenerateField = true)]
             V1,
 
-            [Display(Name = "Value 2", AutoGenerateField = false)]
+            [Display(Name = "Value 2", AutoGenerateField = false, Order = 1)]
             V2,
 
             // order to top (default == 0)

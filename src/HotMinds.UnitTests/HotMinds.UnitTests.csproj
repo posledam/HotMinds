@@ -65,6 +65,7 @@
     <Compile Include="LinqExtensions_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CommonStringExtensions_Tests.cs" />
+    <Compile Include="ReaderWriterLockSlimExtensions_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

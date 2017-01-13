@@ -53,6 +53,7 @@
     <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\EnumMetadata.cs" />
     <Compile Include="Enums\EnumUtils.cs" />
+    <Compile Include="Extensions\ReaderWriterLockSlimExtensions.cs" />
     <Compile Include="Formatting\FileSizeBinary.cs" />
     <Compile Include="Formatting\FileSizeBinarySuffix.cs" />
     <Compile Include="Formatting\FileSizeDecimal.cs" />
@@ -75,6 +76,9 @@
     <Compile Include="Extensions\DecimalExtensions.cs" />
     <Compile Include="Formatting\FileSize.cs" />
     <Compile Include="Cryptography\HashStreamWrapper.cs" />
+    <Compile Include="Threading\ReadLockDisposableBlock.cs" />
+    <Compile Include="Threading\UpgradeableReadLockDisposableBlock.cs" />
+    <Compile Include="Threading\WriteLockDisposableBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">

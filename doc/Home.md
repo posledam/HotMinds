@@ -2,6 +2,7 @@
 
 ## [HotMinds.Enums](HotMinds.Enums)
 
+- [`EnumExtensions`](HotMinds.Enums#enumextensions)
 - [`EnumMetadata`](HotMinds.Enums#enummetadata)
 - [`EnumMetadata<TEnum>`](HotMinds.Enums#enummetadatatenum)
 - [`EnumUtils`](HotMinds.Enums#enumutils)
@@ -11,7 +12,6 @@
 - [`CommonCollectionExtensions`](HotMinds.Extensions#commoncollectionextensions)
 - [`CommonStringExtensions`](HotMinds.Extensions#commonstringextensions)
 - [`DecimalExtensions`](HotMinds.Extensions#decimalextensions)
-- [`EnumExtensions`](HotMinds.Extensions#enumextensions)
 - [`LinqExtensions`](HotMinds.Extensions#linqextensions)
 - [`NumberStringExtensions`](HotMinds.Extensions#numberstringextensions)
 

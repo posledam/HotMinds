@@ -55,24 +55,6 @@ Static Methods
 | `Decimal` | Trim(this `Decimal` d, `Int32` scale, `Int32` precision = 29) | Trim the decimal number to the specified scale and precision. The integral part is truncated on the left.  The fractional part is truncated on the right. Nothing is rounded. | 
 
 
-## `EnumExtensions`
-
-Extensions for Enum value and collections of .
-```csharp
-public static class HotMinds.Extensions.EnumExtensions
-
-```
-
-Static Methods
-
-| Type | Name | Summary | 
-| --- | --- | --- | 
-| `IEnumerable<TEnumData>` | ForField(this `IEnumerable<TEnumData>` sequence, `Boolean` fieldValue = True, `Boolean` strict = False) |  | 
-| `IEnumerable<TEnumData>` | ForFilter(this `IEnumerable<TEnumData>` sequence, `Boolean` filterValue = True, `Boolean` strict = False) |  | 
-| `String` | GetDisplayName(this `Enum` value) | Get enum value display name (from attributes or resources). | 
-| `EnumMetadata` | GetMetadata(this `Enum` value) | Get metadata for Enum value. | 
-
-
 ## `LinqExtensions`
 
 Very useful simple LINQ extensions.

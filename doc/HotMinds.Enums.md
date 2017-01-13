@@ -1,3 +1,21 @@
+## `EnumExtensions`
+
+Extensions for Enum value and collections of .
+```csharp
+public static class HotMinds.Enums.EnumExtensions
+
+```
+
+Static Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `IEnumerable<TEnumData>` | ForField(this `IEnumerable<TEnumData>` sequence, `Boolean` fieldValue = True, `Boolean` strict = False) |  | 
+| `IEnumerable<TEnumData>` | ForFilter(this `IEnumerable<TEnumData>` sequence, `Boolean` filterValue = True, `Boolean` strict = False) |  | 
+| `String` | GetDisplayName(this `Enum` value) | Get enum value display name (from attributes or resources). | 
+| `EnumMetadata` | GetMetadata(this `Enum` value) | Get metadata for Enum value. | 
+
+
 ## `EnumMetadata`
 
 Base enum value meta data class.

@@ -100,7 +100,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)..\tools\MarkdownGenerator.exe "$(TargetPath)" "$(SolutionDir)..\doc"</PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)..\tools\MarkdownGenerator.exe "$(TargetPath)" "$(SolutionDir)..\..\HotMinds.Wiki"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

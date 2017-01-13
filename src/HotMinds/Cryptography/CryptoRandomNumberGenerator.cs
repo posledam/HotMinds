@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 
-namespace HotMinds.Utils
+namespace HotMinds.Cryptography
 {
     /// <summary>
     ///     Сrypto-strength random number generator (based on <see cref="RNGCryptoServiceProvider"/>).

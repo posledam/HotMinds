@@ -1,5 +1,5 @@
 ﻿using System;
-using HotMinds.Utils;
+using HotMinds.Cryptography;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

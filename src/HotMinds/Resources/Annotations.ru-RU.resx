@@ -117,112 +117,112 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FileSizePrefix_Byte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Byte" xml:space="preserve">
     <value>Байт</value>
   </data>
-  <data name="FileSizePrefix_Kilobyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Kilobyte" xml:space="preserve">
     <value>Килобайт</value>
   </data>
-  <data name="FileSizePrefix_Megabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Megabyte" xml:space="preserve">
     <value>Мегабайт</value>
   </data>
-  <data name="FileSizePrefix_Gigabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Gigabyte" xml:space="preserve">
     <value>Гигабайт</value>
   </data>
-  <data name="FileSizePrefix_Terabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Terabyte" xml:space="preserve">
     <value>Терабайт</value>
   </data>
-  <data name="FileSizePrefix_Petabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Petabyte" xml:space="preserve">
     <value>Петабайт</value>
   </data>
-  <data name="FileSizePrefix_Exabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Exabyte" xml:space="preserve">
     <value>Эксабайт</value>
   </data>
-  <data name="FileSizePrefix_Zettabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Zettabyte" xml:space="preserve">
     <value>Зеттабайт</value>
   </data>
-  <data name="FileSizePrefix_Yottabyte" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Yottabyte" xml:space="preserve">
     <value>Иоттабайт</value>
   </data>
-  <data name="FileSizePrefix_Byte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Byte_Short" xml:space="preserve">
     <value>Б</value>
   </data>
-  <data name="FileSizePrefix_Exabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Exabyte_Short" xml:space="preserve">
     <value>Эбайт</value>
   </data>
-  <data name="FileSizePrefix_Gigabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Gigabyte_Short" xml:space="preserve">
     <value>Гбайт</value>
   </data>
-  <data name="FileSizePrefix_Kilobyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Kilobyte_Short" xml:space="preserve">
     <value>Кбайт</value>
   </data>
-  <data name="FileSizePrefix_Megabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Megabyte_Short" xml:space="preserve">
     <value>Мбайт</value>
   </data>
-  <data name="FileSizePrefix_Petabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Petabyte_Short" xml:space="preserve">
     <value>Пбайт</value>
   </data>
-  <data name="FileSizePrefix_Terabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Terabyte_Short" xml:space="preserve">
     <value>Тбайт</value>
   </data>
-  <data name="FileSizePrefix_Yottabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Yottabyte_Short" xml:space="preserve">
     <value>Ибайт</value>
   </data>
-  <data name="FileSizePrefix_Zettabyte_Short" xml:space="preserve">
+  <data name="FileSizeDecimalSuffix_Zettabyte_Short" xml:space="preserve">
     <value>Збайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Byte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Byte" xml:space="preserve">
     <value>Байт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Kibibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Kibibyte" xml:space="preserve">
     <value>Кибибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Mebibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Mebibyte" xml:space="preserve">
     <value>Мебибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Gibibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Gibibyte" xml:space="preserve">
     <value>Гибибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Tebibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Tebibyte" xml:space="preserve">
     <value>Тебибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Pebibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Pebibyte" xml:space="preserve">
     <value>Пебибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Exbibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Exbibyte" xml:space="preserve">
     <value>Эксбибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Zebibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Zebibyte" xml:space="preserve">
     <value>Зебибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Yobibyte" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Yobibyte" xml:space="preserve">
     <value>Йобибайт</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Byte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Byte_Short" xml:space="preserve">
     <value>Б</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Exbibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Exbibyte_Short" xml:space="preserve">
     <value>ЭиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Gibibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Gibibyte_Short" xml:space="preserve">
     <value>ГиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Kibibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Kibibyte_Short" xml:space="preserve">
     <value>КиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Mebibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Mebibyte_Short" xml:space="preserve">
     <value>МиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Pebibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Pebibyte_Short" xml:space="preserve">
     <value>ПиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Tebibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Tebibyte_Short" xml:space="preserve">
     <value>ТиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Yobibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Yobibyte_Short" xml:space="preserve">
     <value>ЙиБ</value>
   </data>
-  <data name="FileSizeBinaryPrefix_Zebibyte_Short" xml:space="preserve">
+  <data name="FileSizeBinarySuffix_Zebibyte_Short" xml:space="preserve">
     <value>ЗиБ</value>
   </data>
 </root>

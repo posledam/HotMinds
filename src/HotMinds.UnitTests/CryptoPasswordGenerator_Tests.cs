@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using HotMinds.Utils;
+using HotMinds.Cryptography;
 using NUnit.Framework;
 
 namespace HotMinds.UnitTests

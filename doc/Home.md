@@ -1,5 +1,12 @@
 # References
 
+## [HotMinds.Cryptography](HotMinds.Cryptography)
+
+- [`CryptoPasswordGenerator`](HotMinds.Cryptography#cryptopasswordgenerator)
+- [`CryptoRandomNumberGenerator`](HotMinds.Cryptography#cryptorandomnumbergenerator)
+- [`HashStreamWrapper`](HotMinds.Cryptography#hashstreamwrapper)
+- [`HashUtils`](HotMinds.Cryptography#hashutils)
+
 ## [HotMinds.Enums](HotMinds.Enums)
 
 - [`EnumExtensions`](HotMinds.Enums#enumextensions)
@@ -15,15 +22,15 @@
 - [`LinqExtensions`](HotMinds.Extensions#linqextensions)
 - [`NumberStringExtensions`](HotMinds.Extensions#numberstringextensions)
 
+## [HotMinds.Formatting](HotMinds.Formatting)
+
+- [`FileSize`](HotMinds.Formatting#filesize)
+- [`FileSizeBinary`](HotMinds.Formatting#filesizebinary)
+- [`FileSizeBinarySuffix`](HotMinds.Formatting#filesizebinarysuffix)
+- [`FileSizeDecimal`](HotMinds.Formatting#filesizedecimal)
+- [`FileSizeDecimalSuffix`](HotMinds.Formatting#filesizedecimalsuffix)
+
 ## [HotMinds.Resources](HotMinds.Resources)
 
 - [`Annotations`](HotMinds.Resources#annotations)
-
-## [HotMinds.Utils](HotMinds.Utils)
-
-- [`CryptoPasswordGenerator`](HotMinds.Utils#cryptopasswordgenerator)
-- [`CryptoRandomNumberGenerator`](HotMinds.Utils#cryptorandomnumbergenerator)
-- [`FileSize`](HotMinds.Utils#filesize)
-- [`FileSizeBinaryPrefix`](HotMinds.Utils#filesizebinaryprefix)
-- [`FileSizePrefix`](HotMinds.Utils#filesizeprefix)
 

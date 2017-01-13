@@ -2,7 +2,7 @@
 
 Easy to use advanced generator of strong passwords.
 ```csharp
-public class HotMinds.Utils.CryptoPasswordGenerator
+public class HotMinds.Cryptography.CryptoPasswordGenerator
     : IDisposable
 
 ```
@@ -39,7 +39,7 @@ Static Fields
 
 Сrypto-strength random number generator (based on ).
 ```csharp
-public class HotMinds.Utils.CryptoRandomNumberGenerator
+public class HotMinds.Cryptography.CryptoRandomNumberGenerator
     : IDisposable
 
 ```
@@ -60,5 +60,55 @@ Static Fields
 | Type | Name | Summary | 
 | --- | --- | --- | 
 | `Int32` | DefaultBufferSize | The default buffer size for storing generated random bytes. | 
+
+
+## `HashStreamWrapper`
+
+Stream wrapper for calculating the hash on the fly when reading or writing.
+```csharp
+public class HotMinds.Cryptography.HashStreamWrapper
+    : Stream, IDisposable
+
+```
+
+Properties
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `Boolean` | CanRead |  | 
+| `Boolean` | CanSeek |  | 
+| `Boolean` | CanWrite |  | 
+| `Int64` | Length |  | 
+| `Int64` | Position |  | 
+
+
+Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `void` | Dispose(`Boolean` disposing) |  | 
+| `void` | Flush() |  | 
+| `Byte[]` | GetHash() | Complete the hash calculation and return the result. | 
+| `String` | GetHashString() | Complete the hash calculation and return the result in a string with hexadecimal representation. | 
+| `Int32` | Read(`Byte[]` buffer, `Int32` offset, `Int32` count) |  | 
+| `Int64` | Seek(`Int64` offset, `SeekOrigin` origin) |  | 
+| `void` | SetLength(`Int64` value) |  | 
+| `void` | Write(`Byte[]` buffer, `Int32` offset, `Int32` count) |  | 
+
+
+## `HashUtils`
+
+Some hash (and not only) utils.
+```csharp
+public static class HotMinds.Cryptography.HashUtils
+
+```
+
+Static Methods
+
+| Type | Name | Summary | 
+| --- | --- | --- | 
+| `String` | ByteArrayToHexString(`Byte[]` bytes) | Convert a byte array to a string of hexadecimal numbers. | 
+| `Byte[]` | HexStringToByteArray(`String` hex) | Convert a string of hexadecimal numbers to a byte array. | 
 
 

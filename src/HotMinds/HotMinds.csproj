@@ -47,11 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography\HashUtils.cs" />
     <Compile Include="Extensions\CommonCollectionExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
     <Compile Include="Enums\EnumMetadata.cs" />
     <Compile Include="Enums\EnumUtils.cs" />
+    <Compile Include="Formatting\FileSizeBinary.cs" />
+    <Compile Include="Formatting\FileSizeBinarySuffix.cs" />
+    <Compile Include="Formatting\FileSizeDecimal.cs" />
+    <Compile Include="Formatting\FileSizeDecimalSuffix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\CommonStringExtensions.cs" />
     <Compile Include="Extensions\NumberStringExtensions.cs" />
@@ -65,10 +70,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Utils\CryptoRandomNumberGenerator.cs" />
-    <Compile Include="Utils\CryptoPasswordGenerator.cs" />
+    <Compile Include="Cryptography\CryptoRandomNumberGenerator.cs" />
+    <Compile Include="Cryptography\CryptoPasswordGenerator.cs" />
     <Compile Include="Extensions\DecimalExtensions.cs" />
-    <Compile Include="Utils\FileSize.cs" />
+    <Compile Include="Formatting\FileSize.cs" />
+    <Compile Include="Cryptography\HashStreamWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\README.md">
@@ -87,6 +93,7 @@
       <DependentUpon>Annotations.resx</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)..\tools\MarkdownGenerator.exe "$(TargetPath)" "$(SolutionDir)..\doc"</PostBuildEvent>

@@ -63,324 +63,324 @@ namespace HotMinds.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Byte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Byte {
+        public static string FileSizeBinarySuffix_Byte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Byte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Byte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to B.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Byte_Short {
+        public static string FileSizeBinarySuffix_Byte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Byte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Byte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Exbibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Exbibyte {
+        public static string FileSizeBinarySuffix_Exbibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Exbibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Exbibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to EiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Exbibyte_Short {
+        public static string FileSizeBinarySuffix_Exbibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Exbibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Exbibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Gibibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Gibibyte {
+        public static string FileSizeBinarySuffix_Gibibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Gibibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Gibibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to GiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Gibibyte_Short {
+        public static string FileSizeBinarySuffix_Gibibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Gibibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Gibibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Kibibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Kibibyte {
+        public static string FileSizeBinarySuffix_Kibibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Kibibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Kibibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to KiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Kibibyte_Short {
+        public static string FileSizeBinarySuffix_Kibibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Kibibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Kibibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Mebibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Mebibyte {
+        public static string FileSizeBinarySuffix_Mebibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Mebibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Mebibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to MiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Mebibyte_Short {
+        public static string FileSizeBinarySuffix_Mebibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Mebibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Mebibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Pebibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Pebibyte {
+        public static string FileSizeBinarySuffix_Pebibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Pebibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Pebibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to PiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Pebibyte_Short {
+        public static string FileSizeBinarySuffix_Pebibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Pebibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Pebibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Tebibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Tebibyte {
+        public static string FileSizeBinarySuffix_Tebibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Tebibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Tebibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to TiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Tebibyte_Short {
+        public static string FileSizeBinarySuffix_Tebibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Tebibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Tebibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Yobibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Yobibyte {
+        public static string FileSizeBinarySuffix_Yobibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Yobibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Yobibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to YiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Yobibyte_Short {
+        public static string FileSizeBinarySuffix_Yobibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Yobibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Yobibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Zebibyte.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Zebibyte {
+        public static string FileSizeBinarySuffix_Zebibyte {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Zebibyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Zebibyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ZiB.
         /// </summary>
-        public static string FileSizeBinaryPrefix_Zebibyte_Short {
+        public static string FileSizeBinarySuffix_Zebibyte_Short {
             get {
-                return ResourceManager.GetString("FileSizeBinaryPrefix_Zebibyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeBinarySuffix_Zebibyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Byte.
         /// </summary>
-        public static string FileSizePrefix_Byte {
+        public static string FileSizeDecimalSuffix_Byte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Byte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Byte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to B.
         /// </summary>
-        public static string FileSizePrefix_Byte_Short {
+        public static string FileSizeDecimalSuffix_Byte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Byte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Byte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Exabyte.
         /// </summary>
-        public static string FileSizePrefix_Exabyte {
+        public static string FileSizeDecimalSuffix_Exabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Exabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Exabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to EB.
         /// </summary>
-        public static string FileSizePrefix_Exabyte_Short {
+        public static string FileSizeDecimalSuffix_Exabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Exabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Exabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Gigabyte.
         /// </summary>
-        public static string FileSizePrefix_Gigabyte {
+        public static string FileSizeDecimalSuffix_Gigabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Gigabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Gigabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to GB.
         /// </summary>
-        public static string FileSizePrefix_Gigabyte_Short {
+        public static string FileSizeDecimalSuffix_Gigabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Gigabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Gigabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Kilobyte.
         /// </summary>
-        public static string FileSizePrefix_Kilobyte {
+        public static string FileSizeDecimalSuffix_Kilobyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Kilobyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Kilobyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to kB.
         /// </summary>
-        public static string FileSizePrefix_Kilobyte_Short {
+        public static string FileSizeDecimalSuffix_Kilobyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Kilobyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Kilobyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Megabyte.
         /// </summary>
-        public static string FileSizePrefix_Megabyte {
+        public static string FileSizeDecimalSuffix_Megabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Megabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Megabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to MB.
         /// </summary>
-        public static string FileSizePrefix_Megabyte_Short {
+        public static string FileSizeDecimalSuffix_Megabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Megabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Megabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Petabyte.
         /// </summary>
-        public static string FileSizePrefix_Petabyte {
+        public static string FileSizeDecimalSuffix_Petabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Petabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Petabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to PB.
         /// </summary>
-        public static string FileSizePrefix_Petabyte_Short {
+        public static string FileSizeDecimalSuffix_Petabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Petabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Petabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Terabyte.
         /// </summary>
-        public static string FileSizePrefix_Terabyte {
+        public static string FileSizeDecimalSuffix_Terabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Terabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Terabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to TB.
         /// </summary>
-        public static string FileSizePrefix_Terabyte_Short {
+        public static string FileSizeDecimalSuffix_Terabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Terabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Terabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Yottabyte.
         /// </summary>
-        public static string FileSizePrefix_Yottabyte {
+        public static string FileSizeDecimalSuffix_Yottabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Yottabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Yottabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to YB.
         /// </summary>
-        public static string FileSizePrefix_Yottabyte_Short {
+        public static string FileSizeDecimalSuffix_Yottabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Yottabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Yottabyte_Short", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Zettabyte.
         /// </summary>
-        public static string FileSizePrefix_Zettabyte {
+        public static string FileSizeDecimalSuffix_Zettabyte {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Zettabyte", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Zettabyte", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ZB.
         /// </summary>
-        public static string FileSizePrefix_Zettabyte_Short {
+        public static string FileSizeDecimalSuffix_Zettabyte_Short {
             get {
-                return ResourceManager.GetString("FileSizePrefix_Zettabyte_Short", resourceCulture);
+                return ResourceManager.GetString("FileSizeDecimalSuffix_Zettabyte_Short", resourceCulture);
             }
         }
     }

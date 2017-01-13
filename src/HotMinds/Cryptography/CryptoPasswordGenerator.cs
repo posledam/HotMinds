@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
 
-namespace HotMinds.Utils
+namespace HotMinds.Cryptography
 {
     /// <summary>
     ///     Easy to use advanced generator of strong passwords.

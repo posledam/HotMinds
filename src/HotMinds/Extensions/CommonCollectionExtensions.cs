@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using JetBrains.Annotations;
 
@@ -91,6 +92,72 @@ namespace HotMinds.Extensions
                 }
             }
             return defaultValue;
+        }
+
+        /// <summary>
+        ///     Get <paramref name="enumerable"/> collection as <see cref="IReadOnlyCollection{T}"/> interface reference.
+        /// </summary>
+        /// <typeparam name="T">Collection items type.</typeparam>
+        /// <param name="enumerable">Source collection.</param>
+        [CanBeNull]
+        public static IReadOnlyCollection<T> AsReadOnlyCollection<T>([CanBeNull] this IEnumerable<T> enumerable)
+        {
+            if (enumerable == null)
+            {
+                return null;
+            }
+            var collection = enumerable as IReadOnlyCollection<T>;
+            return collection ?? new ReadOnlyCollection<T>(enumerable.ToList());
+        }
+
+        /// <summary>
+        ///     Get <paramref name="enumerable"/> collection as <see cref="AsReadOnlyList{T}"/> interface reference.
+        /// </summary>
+        /// <typeparam name="T">Collection items type.</typeparam>
+        /// <param name="enumerable">Source collection.</param>
+        [CanBeNull]
+        public static IReadOnlyList<T> AsReadOnlyList<T>([CanBeNull] this IEnumerable<T> enumerable)
+        {
+            if (enumerable == null)
+            {
+                return null;
+            }
+            var collection = enumerable as IReadOnlyList<T>;
+            return collection ?? new ReadOnlyCollection<T>(enumerable.ToList());
+        }
+
+        /// <summary>
+        ///     Get <paramref name="enumerable"/> collection as <see cref="IReadOnlyCollection{T}"/> interface reference or empty
+        ///     collection, if source is null.
+        /// </summary>
+        /// <typeparam name="T">Collection items type.</typeparam>
+        /// <param name="enumerable">Source collection.</param>
+        [NotNull]
+        public static IReadOnlyCollection<T> AsReadOnlyCollectionOrEmpty<T>([CanBeNull] this IEnumerable<T> enumerable)
+        {
+            if (enumerable == null)
+            {
+                return Array.Empty<T>();
+            }
+            var collection = enumerable as IReadOnlyCollection<T>;
+            return collection ?? new ReadOnlyCollection<T>(enumerable.ToList());
+        }
+
+        /// <summary>
+        ///     Get <paramref name="enumerable"/> collection as <see cref="AsReadOnlyList{T}"/> interface reference or empty
+        ///     collection, if source is null.
+        /// </summary>
+        /// <typeparam name="T">Collection items type.</typeparam>
+        /// <param name="enumerable">Source collection.</param>
+        [NotNull]
+        public static IReadOnlyList<T> AsReadOnlyListOrEmpty<T>([CanBeNull] this IEnumerable<T> enumerable)
+        {
+            if (enumerable == null)
+            {
+                return Array.Empty<T>();
+            }
+            var collection = enumerable as IReadOnlyList<T>;
+            return collection ?? new ReadOnlyCollection<T>(enumerable.ToList());
         }
     }
 }

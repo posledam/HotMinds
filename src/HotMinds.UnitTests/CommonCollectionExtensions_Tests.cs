@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -100,6 +101,70 @@ namespace HotMinds.UnitTests
         }
 
         [Test]
+        public void AsReadOnlyCollection_Test()
+        {
+            var intPreset = new CollectionsPreset<int>(new List<int> { 11, 22, 33, 444, 55 });
+            var strPreset = new CollectionsPreset<string>(new List<string> { "first", "second", "third", "fourth", "soon" });
+            intPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyCollection(), Is
+                .Not.Null
+                .And.EquivalentTo(intPreset.List)));
+            strPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyCollection(), Is
+                .Not.Null
+                .And.EquivalentTo(strPreset.List)));
+
+            Assert.That(((IEnumerable<int>)null).AsReadOnlyCollection(), Is.Null);
+            Assert.That(((IEnumerable<string>)null).AsReadOnlyCollection(), Is.Null);
+        }
+
+        [Test]
+        public void AsReadOnlyList_Test()
+        {
+            var intPreset = new CollectionsPreset<int>(new List<int> { 11, 22, 33, 444, 55 });
+            var strPreset = new CollectionsPreset<string>(new List<string> { "first", "second", "third", "fourth", "soon" });
+            intPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyList(), Is
+                .Not.Null
+                .And.EquivalentTo(intPreset.List)));
+            strPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyList(), Is
+                .Not.Null
+                .And.EquivalentTo(strPreset.List)));
+
+            Assert.That(((IEnumerable<int>)null).AsReadOnlyList(), Is.Null);
+            Assert.That(((IEnumerable<string>)null).AsReadOnlyList(), Is.Null);
+        }
+
+        [Test]
+        public void AsReadOnlyCollectionOrEmpty_Test()
+        {
+            var intPreset = new CollectionsPreset<int>(new List<int> { 11, 22, 33, 444, 55 });
+            var strPreset = new CollectionsPreset<string>(new List<string> { "first", "second", "third", "fourth", "soon" });
+            intPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyCollectionOrEmpty(), Is
+                .Not.Null
+                .And.EquivalentTo(intPreset.List)));
+            strPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyCollectionOrEmpty(), Is
+                .Not.Null
+                .And.EquivalentTo(strPreset.List)));
+
+            Assert.That(((IEnumerable<int>)null).AsReadOnlyCollectionOrEmpty(), Is.Not.Null.And.EquivalentTo(Array.Empty<int>()));
+            Assert.That(((IEnumerable<string>)null).AsReadOnlyCollectionOrEmpty(), Is.Not.Null.And.EquivalentTo(Array.Empty<string>()));
+        }
+
+        [Test]
+        public void AsReadOnlyListOrEmpty_Test()
+        {
+            var intPreset = new CollectionsPreset<int>(new List<int> { 11, 22, 33, 444, 55 });
+            var strPreset = new CollectionsPreset<string>(new List<string> { "first", "second", "third", "fourth", "soon" });
+            intPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyListOrEmpty(), Is
+                .Not.Null
+                .And.EquivalentTo(intPreset.List)));
+            strPreset.ForEachEnumerable((e) => Assert.That(e.AsReadOnlyListOrEmpty(), Is
+                .Not.Null
+                .And.EquivalentTo(strPreset.List)));
+
+            Assert.That(((IEnumerable<int>)null).AsReadOnlyListOrEmpty(), Is.Not.Null.And.EquivalentTo(Array.Empty<int>()));
+            Assert.That(((IEnumerable<string>)null).AsReadOnlyListOrEmpty(), Is.Not.Null.And.EquivalentTo(Array.Empty<string>()));
+        }
+
+        [Test]
         public void In_Test()
         {
             // default use
@@ -153,6 +218,17 @@ namespace HotMinds.UnitTests
                 Assert.That(Array.IsEmpty(), constraint);
                 Assert.That(Dictionary.IsEmpty(), constraint);
                 Assert.That(DictionaryInterface.IsEmpty(), constraint);
+            }
+
+            public void ForEachEnumerable(Action<IEnumerable<T>> tester)
+            {
+                tester(EnumerableInterface);
+                tester(CollectionInterface);
+                tester(ReadOnlyCollectionInterface);
+                tester(ReadOnlyListInterface);
+                tester(List);
+                tester(Collection);
+                tester(Array);
             }
         }
     }
